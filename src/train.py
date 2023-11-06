@@ -1,48 +1,50 @@
-# TODO
+import argparse
+import numpy as np
+import time
+import torch
 
-# import argparse
-# import numpy as np
-# import time
+from data_preprocess import system_samplesize, seed_generator, DataPreproc
+from args import list_of_param_dicts
+from model import Transperf
 
-# from data_preprocess import system_samplesize, seed_generator, DataPreproc
-# from utils.args import list_of_param_dicts
-# from models.models import MLPHierarchicalModel
-# from models.model_runner import ModelRunner
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
-#     # Get system name from the arguments
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("system_name",
-#                         help="name of system to be evaluated: Apache, LLVM, x264, BDBC, BDBJ, SQL, Dune, hipacc, hsmgp, javagc, sac",
-#                         type=str)
-#     parser.add_argument("-ne", "--number_experiment",
-#                         help="number of experiments per sample size (integer)",
-#                         type=int)
-#     parser.add_argument("-ss", "--sample_size",
-#                         help="sample size to be evaluated (integer)",
-#                         type=int)
-#     args = parser.parse_args()
+    # Get system name from the arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument("system_name",
+                        help="name of system to be evaluated: Apache, LLVM, x264, BDBC, BDBJ, SQL, Dune, hipacc, hsmgp, javagc, sac",
+                        type=str)
+    parser.add_argument("-ne", "--number_experiment",
+                        help="number of experiments per sample size (integer)",
+                        type=int)
+    parser.add_argument("-ss", "--sample_size",
+                        help="sample size to be evaluated (integer)",
+                        type=int)
+    args = parser.parse_args()
 
-#     # System to be evaluated:
-#     sys_name = args.system_name
-#     print(sys_name)
+    # System to be evaluated:
+    sys_name = args.system_name
+    print(sys_name)
 
-#     # Number of experiments per sample size
-#     if args.number_experiment is not None:
-#         n_exp = int(args.number_experiment)
-#     else:
-#         n_exp = 30
+    # Number of experiments per sample size
+    if args.number_experiment is not None:
+        n_exp = int(args.number_experiment)
+    else:
+        n_exp = 30
 
-#     # The sample size to be evaluated
-#     if args.sample_size is not None:
-#         sample_size_all = []
-#         sample_size_all.append(int(args.sample_size))
-#     else:
-#         sample_size_all = list(system_samplesize(sys_name))
+    # The sample size to be evaluated
+    if args.sample_size is not None:
+        sample_size_all = []
+        sample_size_all.append(int(args.sample_size))
+    else:
+        sample_size_all = list(system_samplesize(sys_name))
 
-    
-#     data_gen = DataPreproc(sys_name)
+    data_gen = DataPreproc(sys_name)
+    src_sample = data_gen.get_train_valid_samples(1, 1)
+    src_shape = src_sample[0].shape[1]
+    model = Transperf(input_size=src_shape)
+    breakpoint()
 #     runner = ModelRunner(data_gen, MLPHierarchicalModel)
 #     result_sys = []
 
