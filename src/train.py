@@ -6,6 +6,9 @@ import torch
 from data_preprocess import system_samplesize, seed_generator, DataPreproc
 from args import list_of_param_dicts
 from model import Transperf
+# from model_runner import ModelRunner
+from dataset import PerfDataset
+from torch.utils.data import DataLoader
 
 
 if __name__ == '__main__':
@@ -43,8 +46,48 @@ if __name__ == '__main__':
     data_gen = DataPreproc(sys_name)
     src_sample = data_gen.get_train_valid_samples(1, 1)
     src_shape = src_sample[0].shape[1]
-    model = Transperf(input_size=src_shape)
-    breakpoint()
+    nhead = 8
+    model = Transperf(input_size=src_shape, nhead=nhead)
+    if src_shape % nhead != 0:
+        d_model = (src_shape // nhead)*nhead + nhead
+    else:
+        d_model = src_shape
+    
+    # For now, use 70% of the data for training and same seed
+    train_num = int(data_gen.Y_all.shape[0]*0.7)
+    
+    # TODO: Experiment with gnorm
+    x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(train_num, 1, gnorm=False)
+    
+    train_dataset = PerfDataset(x_train, y_train, d_model)
+    valid_dataset = PerfDataset(x_valid, y_valid, d_model)
+    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+    valid_dataloader = DataLoader(valid_dataset, batch_size=32, shuffle=True)
+    
+    # Train model for 100 epochs
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
+    for epoch in range(500):
+        model.train()
+        for batch_idx, (x_train, y_train) in enumerate(train_dataloader):
+            output = model(x_train)
+            loss = torch.nn.functional.mse_loss(output, y_train)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+        
+        # Validation
+        model.eval()
+        error = 0.0
+        num_samples = 0
+        for batch_idx, (x_valid, y_valid) in enumerate(valid_dataloader):
+            output = model(x_valid)
+            batch_error = torch.abs(output - y_valid)
+            error += batch_error.sum().item()
+            num_samples += y_valid.size(0)
+        error /= num_samples
+        print("Epoch: {}, Mean error: {}".format(epoch, error))
+            
+    
 #     runner = ModelRunner(data_gen, MLPHierarchicalModel)
 #     result_sys = []
 
