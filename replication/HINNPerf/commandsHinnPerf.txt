@@ -1,0 +1,3 @@
+conda create -n hinnperf python=3.7.6 numpy=1.20.3 tensorflow=1.15.0 seaborn=0.11.2 matplotlib=3.5.1 tensorflow-estimator=1.15
+conda activate hinnperf
+python run.py x264
