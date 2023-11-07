@@ -1,0 +1,3 @@
+conda create -n deepperf python=3.6 tensorflow=1.10.0
+conda activate deepperf
+python AutoDeepPerf.py x264
