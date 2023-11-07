@@ -49,7 +49,7 @@ class ModelRunner():
                 optimizer.step()
                 batch_error = torch.abs(output - y_train)
                 error += batch_error.sum().item()
-                num_samples += y_valid.shape[0]
+                num_samples += y_train.size(0)
             error_train = error / num_samples
             
             # Validation
@@ -104,7 +104,7 @@ class ModelRunner():
                 optimizer.step()
                 batch_error = torch.abs(output - y_train)
                 error += batch_error.sum().item()
-                num_samples += y_valid.size(0)
+                num_samples += y_train.size(0)
             error_train = error / num_samples
             
             # Validation
