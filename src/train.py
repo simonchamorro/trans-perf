@@ -6,7 +6,7 @@ import torch
 from data_preprocess import system_samplesize, seed_generator, DataPreproc
 from args import list_of_param_dicts
 from model import Transperf
-# from model_runner import ModelRunner
+from model_runner import ModelRunner
 from dataset import PerfDataset
 from torch.utils.data import DataLoader
 
@@ -53,110 +53,68 @@ if __name__ == '__main__':
     else:
         d_model = src_shape
     
-    # For now, use 70% of the data for training and same seed
-    train_num = int(data_gen.Y_all.shape[0]*0.7)
-    
-    # TODO: Experiment with gnorm
-    x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(train_num, 1, gnorm=False)
-    
-    train_dataset = PerfDataset(x_train, y_train, d_model)
-    valid_dataset = PerfDataset(x_valid, y_valid, d_model)
-    train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-    valid_dataloader = DataLoader(valid_dataset, batch_size=32, shuffle=True)
-    
-    # Train model for 100 epochs
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-    for epoch in range(500):
-        model.train()
-        for batch_idx, (x_train, y_train) in enumerate(train_dataloader):
-            output = model(x_train)
-            loss = torch.nn.functional.mse_loss(output, y_train)
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
-        
-        # Validation
-        model.eval()
-        error = 0.0
-        num_samples = 0
-        for batch_idx, (x_valid, y_valid) in enumerate(valid_dataloader):
-            output = model(x_valid)
-            batch_error = torch.abs(output - y_valid)
-            error += batch_error.sum().item()
-            num_samples += y_valid.size(0)
-        error /= num_samples
-        print("Epoch: {}, Mean error: {}".format(epoch, error))
+    runner = ModelRunner(data_gen, model)
+    result_sys = []
+
+    # Sample sizes need to be investigated
+    for idx in range(len(sample_size_all)):
+        N_train = sample_size_all[idx]
+        rel_error_mean = []
+
+        if (N_train >= data_gen.all_sample_num):
+            raise AssertionError("Sample size can't be larger than whole data")
+
+        for m in range(1, n_exp+1):
+            print("Experiment: {}".format(m))
+
+            start = time.time()
+
+            config = dict(
+                input_dim = [data_gen.config_num],
+                gnorm = [False, True],
+                lr = [0.001],
+            )
+            config_list = list_of_param_dicts(config)
             
-    
-#     runner = ModelRunner(data_gen, MLPHierarchicalModel)
-#     result_sys = []
-
-#     # Sample sizes need to be investigated
-#     for idx in range(len(sample_size_all)):
-#         N_train = sample_size_all[idx]
-#         rel_error_mean = []
-
-#         if (N_train >= data_gen.all_sample_num):
-#             raise AssertionError("Sample size can't be larger than whole data")
-
-#         for m in range(1, n_exp+1):
-#             print("Experiment: {}".format(m))
-
-#             start = time.time()
-
-#             config = dict(
-#                 input_dim = [data_gen.config_num],
-#                 num_neuron = [128],
-#                 num_block = [2,3,4,5],
-#                 num_layer_pb = [2,3,4],
-#                 lamda = [0.001, 0.01, 0.1, 1., 10.], 
-#                 linear = [False],
-#                 gnorm = [False, True],
-#                 lr = [0.001],
-#                 decay = [None],
-#                 verbose = [True]
-#             )
-#             config_list = list_of_param_dicts(config)
+            abs_error_val_min = float('inf')
+            best_config = None
+            for con in config_list:
+                abs_error_train, abs_error_val = runner.train(con, N_train, n_exp, m)
+                if abs_error_val_min > abs_error_val:
+                    abs_error_val_min = abs_error_val
+                    best_config = con
             
-#             abs_error_val_min = float('inf')
-#             best_config = None
-#             for con in config_list:
-#                 abs_error_train, abs_error_val = runner.train(con, N_train, n_exp, m)
-#                 if abs_error_val_min > abs_error_val:
-#                     abs_error_val_min = abs_error_val
-#                     best_config = con
+            print(best_config)
             
-#             print(best_config)
-            
-#             rel_error = runner.test(best_config, N_train, n_exp, m)
-#             rel_error_mean.append(rel_error)
+            mean_error, rel_error = runner.test(best_config, N_train, n_exp, m)
+            rel_error_mean.append(rel_error)
 
-#         result = dict()
-#         result["N_train"] = N_train
-#         result["rel_error_mean"] = rel_error_mean
-#         result_sys.append(result)
+        result = dict()
+        result["N_train"] = N_train
+        result["rel_error_mean"] = rel_error_mean
+        result_sys.append(result)
 
 
-#         # Compute some statistics: mean, confidence interval
-#         result = []
-#         for i in range(len(result_sys)):
-#             temp = result_sys[i]
-#             sd_error_temp = np.sqrt(np.var(temp['rel_error_mean'], ddof=1))
-#             ci_temp = 1.96*sd_error_temp/np.sqrt(len(temp['rel_error_mean']))
-#             result_exp = [temp['N_train'], np.mean(temp['rel_error_mean']), ci_temp]
-#             result.append(result_exp)
-#         result_arr = np.asarray(result)
+        # Compute some statistics: mean, confidence interval
+        result = []
+        for i in range(len(result_sys)):
+            temp = result_sys[i]
+            sd_error_temp = np.sqrt(np.var(temp['rel_error_mean'], ddof=1))
+            ci_temp = 1.96*sd_error_temp/np.sqrt(len(temp['rel_error_mean']))
+            result_exp = [temp['N_train'], np.mean(temp['rel_error_mean']), ci_temp]
+            result.append(result_exp)
+        result_arr = np.asarray(result)
 
-#         print('Finish experimenting for system {} with sample size {}.'.format(sys_name, N_train))
-#         print('Mean prediction relative error (%) is: {:.2f}, Margin (%) is: {:.2f}'.format(np.mean(rel_error_mean), ci_temp))
+        print('Finish experimenting for system {} with sample size {}.'.format(sys_name, N_train))
+        print('Mean prediction relative error (%) is: {:.2f}, Margin (%) is: {:.2f}'.format(np.mean(rel_error_mean), ci_temp))
 
-#         # Save the result statistics to a csv file after each sample
-#         # Save the raw results to an .npy file
-#         print('Save results to the results directory ...')
-#         filename = 'results/result_' + sys_name + '.csv'
-#         np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="Sample size, Mean, Margin")
-#         print('Save the statistics to file ' + filename + ' ...')
+        # Save the result statistics to a csv file after each sample
+        # Save the raw results to an .npy file
+        print('Save results to the results directory ...')
+        filename = 'results/result_' + sys_name + '.csv'
+        np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="Sample size, Mean, Margin")
+        print('Save the statistics to file ' + filename + ' ...')
 
-#         filename = 'results/result_' + sys_name + '_AutoML_veryrandom.npy'
-#         np.save(filename, result_sys)
-#         print('Save the raw results to file ' + filename + ' ...')
+        filename = 'results/result_' + sys_name + '_AutoML_veryrandom.npy'
+        np.save(filename, result_sys)
+        print('Save the raw results to file ' + filename + ' ...')

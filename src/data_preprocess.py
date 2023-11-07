@@ -16,34 +16,34 @@ def system_samplesize(sys_name):
     l = np.linspace(0.01, 0.15, 15)
 
     if (sys_name == 'x264'):
-        N_train_all = np.multiply(16, [1, 2, 4, 6])  # This is for X264
+        N_train_all = np.multiply(16, [1, 2, 4, 6, 48])  # This is for X264
     elif (sys_name == 'BDBJ'):
         #N_train_all = (l * 180).astype('int')
         N_train_all = np.multiply(26, [1, 2, 4, 6])  # This is for BDBJ
     elif (sys_name == 'lrzip'):
         #N_train_all = (l * 432).astype('int')
-        N_train_all = np.multiply(19, [1, 2, 4, 6])  # This is for LRZIP
+        N_train_all = np.multiply(19, [1, 2, 4, 6, 15])  # This is for LRZIP
     elif (sys_name == 'polly'):
         #N_train_all = (l * 60000).astype('int')
-        N_train_all = np.multiply(39, [1, 2, 4, 6])  # This is for POLLY
+        N_train_all = np.asarray([39, 78, 156, 234, 1000])  # This is for POLLY
     elif (sys_name == 'vp9'):
         #N_train_all = (l * 216000).astype('int')
-        N_train_all = np.multiply(41, [1, 2, 4, 6])  # This is for VP9
+        N_train_all = np.asarray(41, [41, 82, 164, 246, 3500])  # This is for VP9
     elif (sys_name == 'Dune'):
         #N_train_all = (l * 2304).astype('int')
-        N_train_all = np.asarray([49, 78, 384, 600])  # This is for Dune
+        N_train_all = np.asarray([49, 78, 384, 600, 1600])  # This is for Dune
     elif (sys_name == 'hipacc'):
         #N_train_all = (l * 13485).astype('int')
-        N_train_all = np.asarray([261, 528, 736, 1281])  # This is for hipacc
+        N_train_all = np.asarray([261, 528, 736, 1281, 9400])  # This is for hipacc
     elif (sys_name == 'hsmgp'):
         #N_train_all = (l * 3456).astype('int')
-        N_train_all = np.asarray([77, 173, 384, 480])  # This is for hsmgp
+        N_train_all = np.asarray([77, 173, 384, 480, 2300])  # This is for hsmgp
     elif (sys_name == 'javagc'):
         #N_train_all = (l * 166975).astype('int')
-        N_train_all = np.asarray([855, 2571, 3032, 5312])  # This is for javagc
+        N_train_all = np.asarray([855, 2571, 3032, 5312, 116000])  # This is for javagc
     elif (sys_name == 'sac'):
         #N_train_all = (l * 62523).astype('int')
-        N_train_all = np.asarray([2060, 2295, 2499, 3261])  # This is for sac
+        N_train_all = np.asarray([2060, 2295, 2499, 3261, 43000])  # This is for sac
     else:
         raise AssertionError("Unexpected value of 'sys_name'!")
 
