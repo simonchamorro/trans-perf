@@ -117,7 +117,9 @@ class ModelRunner():
                 batch_error = torch.abs(output - y_valid)
                 error += batch_error.sum().item()
                 num_samples += y_valid.size(0)
-                rel_error += np.sum(np.abs(np.divide(y_valid.ravel() - output.ravel(), y_valid.ravel())))
+                rel_error += np.sum(np.abs(np.divide(y_valid.detach().numpy().ravel() 
+                                                     - output.detach().numpy().ravel(), 
+                                                     y_valid.detach().numpy().ravel())))
             error_valid = error / num_samples
             rel_error_valid = rel_error / num_samples
             # print("Epoch: {}, Mean error: {}".format(epoch, error))
