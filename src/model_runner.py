@@ -66,7 +66,6 @@ class ModelRunner():
             error_valid = error / num_samples
             rel_error_valid = rel_error / num_samples
         print("Valid - Epoch: {}, Mean error: {}, Mean rel error: {}".format(epoch, error_valid, rel_error_valid*100))
-            
         return error_train, error_valid
     
     def test(self, config, sample_size=None, number_experiment=1, cur_exp=0):

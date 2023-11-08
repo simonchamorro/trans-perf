@@ -16,7 +16,7 @@ def system_samplesize(sys_name):
     l = np.linspace(0.01, 0.15, 15)
 
     if (sys_name == 'x264'):
-        N_train_all = np.multiply(16, [1, 2, 4, 6, 48])  # This is for X264
+        N_train_all =  np.array([750]) #np.multiply(16, [1, 2, 4, 6, 48])  # This is for X264
     elif (sys_name == 'BDBJ'):
         #N_train_all = (l * 180).astype('int')
         N_train_all = np.multiply(26, [1, 2, 4, 6])  # This is for BDBJ
