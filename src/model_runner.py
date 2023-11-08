@@ -61,7 +61,7 @@ class ModelRunner():
                 output = self.model(x_valid)
                 batch_error = np.abs(y_valid.detach().numpy().ravel() - output.detach().numpy().ravel())
                 error += np.sum(batch_error)
-                rel_error += np.sum(np.divide(batch_error, y_valid.detach().numpy().ravel()))
+                rel_error += np.sum(np.divide(batch_error, np.abs(y_valid.detach().numpy().ravel())))
                 num_samples += y_valid.size(0)
             error_valid = error / num_samples
             rel_error_valid = rel_error / num_samples
@@ -122,7 +122,7 @@ class ModelRunner():
                 output = self.post_process(output, config['gnorm'], y_max, y_mean, y_std)
                 batch_error = np.abs(y_test.detach().numpy().ravel() - output)
                 error += np.sum(batch_error)
-                rel_error += np.sum(np.divide(batch_error, y_test.detach().numpy().ravel()))
+                rel_error += np.sum(np.divide(batch_error, np.abs(y_test.detach().numpy().ravel())))
                 num_samples += y_test.size(0)
             error_test = error / num_samples
             rel_error_test = rel_error / num_samples
