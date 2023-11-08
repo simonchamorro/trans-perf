@@ -73,6 +73,7 @@ if __name__ == '__main__':
                 input_dim = [data_gen.config_num],
                 gnorm = [False, True],
                 lr = [0.001],
+                epochs = [1000],
             )
             config_list = list_of_param_dicts(config)
             
