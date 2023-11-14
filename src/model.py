@@ -6,9 +6,9 @@ class Transperf(torch.nn.Module):
     def __init__(self, 
                  input_size=13, 
                  nhead=8,
-                 dim_feedforward=512,
+                 dim_feedforward=32,
                  dropout=0.1,
-                 num_encoder_layers=6,
+                 num_encoder_layers=4,
                  load_model=None,):
         super(Transperf, self).__init__()
         if input_size % nhead != 0:
