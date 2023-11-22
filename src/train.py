@@ -46,13 +46,7 @@ if __name__ == '__main__':
     data_gen = DataPreproc(sys_name)
     src_sample = data_gen.get_train_valid_samples(1, 1)
     src_shape = src_sample[0].shape[1]
-    nhead = 8
-    model = Transperf(input_size=src_shape, nhead=nhead)
-    if src_shape % nhead != 0:
-        d_model = (src_shape // nhead)*nhead + nhead
-    else:
-        d_model = src_shape
-    
+    model = Transperf(input_size=src_shape,)    
     runner = ModelRunner(data_gen, model)
     result_sys = []
 

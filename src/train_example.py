@@ -29,13 +29,7 @@ if __name__ == '__main__':
                 epochs = 1000,
             )
     
-    nhead = 8
-    model = Transperf(input_size=src_shape, nhead=nhead)
-    if src_shape % nhead != 0:
-        d_model = (src_shape // nhead)*nhead + nhead
-    else:
-        d_model = src_shape
-    
+    model = Transperf(input_size=src_shape)
     runner = ModelRunner(data_gen, model)
     mean_error, rel_error = runner.test(config, save_model=True)
     
