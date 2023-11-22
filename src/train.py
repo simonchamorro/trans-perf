@@ -34,7 +34,7 @@ if __name__ == '__main__':
     if args.number_experiment is not None:
         n_exp = int(args.number_experiment)
     else:
-        n_exp = 30
+        n_exp = 5
 
     # The sample size to be evaluated
     if args.sample_size is not None:

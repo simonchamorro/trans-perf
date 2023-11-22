@@ -26,7 +26,7 @@ if __name__ == '__main__':
                 input_dim = data_gen.config_num,
                 gnorm = False,
                 lr = 0.001,
-                epochs = 100,
+                epochs = 1000,
             )
     
     nhead = 8
