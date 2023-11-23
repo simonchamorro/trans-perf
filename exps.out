@@ -1,0 +1,496 @@
+x264
+Read whole dataset x264 from csv file ...
+input size: 13, nhead: 8, d_model: 16
+Experiment: 1
+Valid - Epoch: 999, Mean error: 19.163833618164062, Mean rel error: 25.67466735839844
+Valid - Epoch: 999, Mean error: 0.9893889427185059, Mean rel error: 1249.223403930664
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 76.8121896730886, Mean rel error: 19.243585436538478
+Experiment: 2
+Valid - Epoch: 999, Mean error: 10.503067016601562, Mean rel error: 11.164017915725708
+Valid - Epoch: 999, Mean error: 39.8902587890625, Mean rel error: 22993.2470703125
+{'input_dim': 13, 'gnorm': False, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 55.99357969343337, Mean rel error: 13.628091094887887
+Experiment: 3
+Valid - Epoch: 999, Mean error: 18.293930053710938, Mean rel error: 19.047030210494995
+Valid - Epoch: 999, Mean error: 1.6867679595947265, Mean rel error: 98.53729248046875
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 51.5377908907129, Mean rel error: 12.238175700139589
+Experiment: 4
+Valid - Epoch: 999, Mean error: 4.124481964111328, Mean rel error: 4.922558069229126
+Valid - Epoch: 999, Mean error: 0.374545955657959, Mean rel error: 32.0085072517395
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 62.352596831876376, Mean rel error: 11.74146632882269
+Experiment: 5
+Valid - Epoch: 999, Mean error: 3.9883018493652345, Mean rel error: 6.5973544120788565
+Valid - Epoch: 999, Mean error: 0.6484607219696045, Mean rel error: 127.27378845214842
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 31.231916386652237, Mean rel error: 7.511588675684052
+Finish experimenting for system x264 with sample size 16.
+Mean prediction relative error (%) is: 12.87, Margin (%) is: 3.71
+Save results to the results directory ...
+Save the statistics to file results/result_x264.csv ...
+Save the raw results to file results/result_x264_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 5.221531677246094, Mean rel error: 5.296873450279236
+Valid - Epoch: 999, Mean error: 0.20740199089050293, Mean rel error: 15.459249019622803
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 19.902033068536202, Mean rel error: 4.191195695513194
+Experiment: 2
+Valid - Epoch: 999, Mean error: 5.927615356445313, Mean rel error: 9.416247606277466
+Valid - Epoch: 999, Mean error: 0.12413482666015625, Mean rel error: 48.15268039703369
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 19.35955818432158, Mean rel error: 4.346140286106126
+Experiment: 3
+Valid - Epoch: 999, Mean error: 2.8349029541015627, Mean rel error: 5.500924587249756
+Valid - Epoch: 999, Mean error: 0.11540623903274536, Mean rel error: 19.1355299949646
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 16.164798747343184, Mean rel error: 3.52078728739693
+Experiment: 4
+Valid - Epoch: 999, Mean error: 2.0022651672363283, Mean rel error: 2.9688087105751038
+Valid - Epoch: 999, Mean error: 0.23397841453552246, Mean rel error: 87.39131927490234
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 16.544253027100034, Mean rel error: 3.7089455558173396
+Experiment: 5
+Valid - Epoch: 999, Mean error: 3.372798538208008, Mean rel error: 4.362799525260925
+Valid - Epoch: 999, Mean error: 0.23403666019439698, Mean rel error: 49.457640647888184
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 35.479088193416246, Mean rel error: 8.940055076383121
+Finish experimenting for system x264 with sample size 32.
+Mean prediction relative error (%) is: 4.94, Margin (%) is: 1.98
+Save results to the results directory ...
+Save the statistics to file results/result_x264.csv ...
+Save the raw results to file results/result_x264_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.755402610415504, Mean rel error: 1.9230785824003676
+Valid - Epoch: 999, Mean error: 0.07538740975516182, Mean rel error: 13.835552760532924
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 9.502816751379484, Mean rel error: 2.1184910723994634
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.0795021057128906, Mean rel error: 1.860801378885905
+Valid - Epoch: 999, Mean error: 0.11067619777861096, Mean rel error: 20.976924896240234
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 6.386782036558212, Mean rel error: 1.4031958114540133
+Experiment: 3
+Valid - Epoch: 999, Mean error: 0.7119106111072359, Mean rel error: 1.1182463594845362
+Valid - Epoch: 999, Mean error: 0.03797643809091477, Mean rel error: 20.79345839364188
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 6.409405053511018, Mean rel error: 1.442592154266194
+Experiment: 4
+Valid - Epoch: 999, Mean error: 0.6836416153680711, Mean rel error: 1.2533474536169142
+Valid - Epoch: 999, Mean error: 0.07754422369457427, Mean rel error: 52.307274228050595
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 5.854281744468814, Mean rel error: 1.2935136109109981
+Experiment: 5
+Valid - Epoch: 999, Mean error: 0.8287444341750372, Mean rel error: 1.576641627720424
+Valid - Epoch: 999, Mean error: 0.053312398138500396, Mean rel error: 14.353223074050176
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 6.737569750217382, Mean rel error: 1.3918082791293485
+Finish experimenting for system x264 with sample size 64.
+Mean prediction relative error (%) is: 1.53, Margin (%) is: 0.29
+Save results to the results directory ...
+Save the statistics to file results/result_x264.csv ...
+Save the raw results to file results/result_x264_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.7926157116889954, Mean rel error: 1.3255659490823746
+Valid - Epoch: 999, Mean error: 0.06874776631593704, Mean rel error: 24.68186765909195
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 4.747144609581338, Mean rel error: 1.1502163943906711
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.0027532577514648, Mean rel error: 1.6332846134901047
+Valid - Epoch: 999, Mean error: 0.07207825779914856, Mean rel error: 27.026084065437317
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.847496152304327, Mean rel error: 0.9072422447040189
+Experiment: 3
+Valid - Epoch: 999, Mean error: 0.5887620449066162, Mean rel error: 0.9919853881001472
+Valid - Epoch: 999, Mean error: 0.1166803240776062, Mean rel error: 74.32798147201538
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.2770047693711883, Mean rel error: 0.8987383359045698
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.0958455801010132, Mean rel error: 1.4430053532123566
+Valid - Epoch: 999, Mean error: 0.10905741900205612, Mean rel error: 23.146559298038483
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.920134252798377, Mean rel error: 0.7045124247852961
+Experiment: 5
+Valid - Epoch: 999, Mean error: 0.6214836835861206, Mean rel error: 1.249459758400917
+Valid - Epoch: 999, Mean error: 0.13518111407756805, Mean rel error: 201.1843204498291
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.8144475008200267, Mean rel error: 1.042492305450932
+Finish experimenting for system x264 with sample size 96.
+Mean prediction relative error (%) is: 0.94, Margin (%) is: 0.15
+Save results to the results directory ...
+Save the statistics to file results/result_x264.csv ...
+Save the raw results to file results/result_x264_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.21169670671224594, Mean rel error: 0.3388177225133404
+Valid - Epoch: 999, Mean error: 0.033235834678635, Mean rel error: 150.5672361701727
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.5668400238060383, Mean rel error: 0.4179827453050028
+Experiment: 2
+Valid - Epoch: 999, Mean error: 0.16176599264144897, Mean rel error: 0.31023327610455453
+Valid - Epoch: 999, Mean error: 0.25550405867397785, Mean rel error: 266.6677750647068
+{'input_dim': 13, 'gnorm': False, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.1376321724957383, Mean rel error: 0.2546259936711607
+Experiment: 3
+Valid - Epoch: 999, Mean error: 0.09749101102352142, Mean rel error: 0.1853333684266545
+Valid - Epoch: 999, Mean error: 0.02886367542669177, Mean rel error: 44.70004332251847
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.2283972115035637, Mean rel error: 0.4796561302961878
+Experiment: 4
+Valid - Epoch: 999, Mean error: 0.11198225617408752, Mean rel error: 0.19537886109901592
+Valid - Epoch: 999, Mean error: 0.029946346301585436, Mean rel error: 10.000485833734274
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.8901452538933146, Mean rel error: 0.5104127364252764
+Experiment: 5
+Valid - Epoch: 999, Mean error: 0.20402682572603226, Mean rel error: 0.3672509337775409
+Valid - Epoch: 999, Mean error: 0.013879745732992887, Mean rel error: 3.484096610918641
+{'input_dim': 13, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.2416778831666857, Mean rel error: 0.5616864710557099
+Finish experimenting for system x264 with sample size 768.
+Mean prediction relative error (%) is: 0.44, Margin (%) is: 0.10
+Save results to the results directory ...
+Save the statistics to file results/result_x264.csv ...
+Save the raw results to file results/result_x264_AutoML_veryrandom.npy ...
+hipacc
+Read whole dataset hipacc from csv file ...
+input size: 33, nhead: 8, d_model: 40
+Experiment: 1
+Valid - Epoch: 999, Mean error: 4.975569450992277, Mean rel error: 9.605365512014806
+Valid - Epoch: 999, Mean error: 0.44387895211406136, Mean rel error: 1544.1218343274347
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 4.75329868316833, Mean rel error: 11.627217078176496
+Experiment: 2
+Valid - Epoch: 999, Mean error: 4.163624642909258, Mean rel error: 10.055807267112293
+Valid - Epoch: 999, Mean error: 0.29913541092269724, Mean rel error: 127.48972136398842
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.0027943603867926, Mean rel error: 7.16232514252912
+Experiment: 3
+Valid - Epoch: 999, Mean error: 3.432697339989673, Mean rel error: 6.953417021652748
+Valid - Epoch: 999, Mean error: 0.5060956889185412, Mean rel error: 648.5763582690008
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.22104798222242, Mean rel error: 8.044708956077622
+Experiment: 4
+Valid - Epoch: 999, Mean error: 3.1558064427869073, Mean rel error: 7.417878611334439
+Valid - Epoch: 999, Mean error: 0.21794416712618422, Mean rel error: 47.466030340085084
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.7578402449240405, Mean rel error: 6.834239790180269
+Experiment: 5
+Valid - Epoch: 999, Mean error: 3.202301551555765, Mean rel error: 7.483181460150357
+Valid - Epoch: 999, Mean error: 0.280849166300105, Mean rel error: 62.036181044304506
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.5872776059207805, Mean rel error: 6.41895336507005
+Finish experimenting for system hipacc with sample size 261.
+Mean prediction relative error (%) is: 8.02, Margin (%) is: 1.84
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.6035605018789119, Mean rel error: 4.087934609163891
+Valid - Epoch: 999, Mean error: 0.17221949859098953, Mean rel error: 76.06573429974642
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.7989362897364252, Mean rel error: 4.381374522155077
+Experiment: 2
+Valid - Epoch: 999, Mean error: 2.2017867781899194, Mean rel error: 5.625738135792992
+Valid - Epoch: 999, Mean error: 0.1683149825442921, Mean rel error: 63.54102681983601
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.6327738243640428, Mean rel error: 4.008497190322358
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.6231132637370715, Mean rel error: 4.206031188368797
+Valid - Epoch: 999, Mean error: 0.151155448095365, Mean rel error: 225.28875361789358
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.771600579736124, Mean rel error: 4.3145294129133624
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.453424800526012, Mean rel error: 4.598432711579583
+Valid - Epoch: 999, Mean error: 0.42640581727027893, Mean rel error: 243.02333755926654
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.5285007616934847, Mean rel error: 3.825176150354453
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.6228462999517268, Mean rel error: 4.248597303574735
+Valid - Epoch: 999, Mean error: 0.1066102385520935, Mean rel error: 59.93846763264049
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.606265992577218, Mean rel error: 4.0295453147419735
+Finish experimenting for system hipacc with sample size 528.
+Mean prediction relative error (%) is: 4.11, Margin (%) is: 0.20
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.1526285054732341, Mean rel error: 3.319172542922351
+Valid - Epoch: 999, Mean error: 0.24917160150956136, Mean rel error: 108.78657827571946
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.4858064899815628, Mean rel error: 3.735872214667957
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.489197010896644, Mean rel error: 3.77883361310375
+Valid - Epoch: 999, Mean error: 0.11195693356650216, Mean rel error: 54.737692463154694
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.7977168162407884, Mean rel error: 4.865857800568292
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.3635740941884567, Mean rel error: 3.443342447280884
+Valid - Epoch: 999, Mean error: 0.1093967257713785, Mean rel error: 42.69751957484654
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.5725496549071178, Mean rel error: 3.7316543135006297
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.6230578364158164, Mean rel error: 4.369741070027254
+Valid - Epoch: 999, Mean error: 0.10568324935679534, Mean rel error: 560.7649347733478
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.3204612463352126, Mean rel error: 3.3030978162117077
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.4442092194849132, Mean rel error: 4.033353936915495
+Valid - Epoch: 999, Mean error: 0.0940931865147182, Mean rel error: 85.24836511028056
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.367298168996423, Mean rel error: 3.573340945799655
+Finish experimenting for system hipacc with sample size 736.
+Mean prediction relative error (%) is: 3.84, Margin (%) is: 0.52
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.1062943371453386, Mean rel error: 2.9166220152964355
+Valid - Epoch: 999, Mean error: 0.08441144409447698, Mean rel error: 116.5637343493781
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.2361971286800855, Mean rel error: 3.17310841066014
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.3146165986250937, Mean rel error: 3.3330667074726117
+Valid - Epoch: 999, Mean error: 0.1036318343752162, Mean rel error: 85.02612027407251
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.368254935329186, Mean rel error: 3.5631331716725834
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.1171305028839469, Mean rel error: 2.9608180846765952
+Valid - Epoch: 999, Mean error: 0.0830590727736855, Mean rel error: 38.8696941893888
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.412166948523051, Mean rel error: 3.8270095553635324
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.1649616473731728, Mean rel error: 3.1481205858726415
+Valid - Epoch: 999, Mean error: 0.08352836624520724, Mean rel error: 21.939309921979348
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.6011966148223271, Mean rel error: 4.481218733145271
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.2048485731352687, Mean rel error: 3.451124908494168
+Valid - Epoch: 999, Mean error: 0.0847079834837545, Mean rel error: 27.114251011707747
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.04329051592991, Mean rel error: 5.613122575922704
+Finish experimenting for system hipacc with sample size 1281.
+Mean prediction relative error (%) is: 4.13, Margin (%) is: 0.84
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.8257853188074856, Mean rel error: 2.352114936394544
+Valid - Epoch: 999, Mean error: 0.0630817082298856, Mean rel error: 36.66075046854662
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.7861157537746428, Mean rel error: 2.117808492541237
+Experiment: 2
+Valid - Epoch: 999, Mean error: 0.5849209738888758, Mean rel error: 1.8610895441014508
+Valid - Epoch: 999, Mean error: 0.07016327017380185, Mean rel error: 80.095679167167
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.6793329061831425, Mean rel error: 1.8116233221366702
+Experiment: 3
+Valid - Epoch: 999, Mean error: 0.7111142959375562, Mean rel error: 2.027155342400359
+Valid - Epoch: 999, Mean error: 0.05215962247805895, Mean rel error: 25.351050818571448
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.7117432015386087, Mean rel error: 1.9028055453510238
+Experiment: 4
+Valid - Epoch: 999, Mean error: 0.6843920043205021, Mean rel error: 2.250242394987022
+Valid - Epoch: 999, Mean error: 0.05671637308624199, Mean rel error: 54.184837117577146
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.8292068441509064, Mean rel error: 2.2425912139328417
+Experiment: 5
+Valid - Epoch: 999, Mean error: 0.6141711976860721, Mean rel error: 1.8492724419477227
+Valid - Epoch: 999, Mean error: 0.04536619633103269, Mean rel error: 32.22872033653418
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.6260957874509779, Mean rel error: 1.7362493015852007
+Finish experimenting for system hipacc with sample size 9400.
+Mean prediction relative error (%) is: 1.96, Margin (%) is: 0.19
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Dune
+Read whole dataset Dune from csv file ...
+input size: 11, nhead: 8, d_model: 16
+Experiment: 1
+Valid - Epoch: 999, Mean error: 7.004117965698242, Mean rel error: 12.036365270614624
+Valid - Epoch: 999, Mean error: 0.5399423837661743, Mean rel error: 181.984281539917
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1373.5780921751245, Mean rel error: 10.979581347606102
+Experiment: 2
+Valid - Epoch: 999, Mean error: 5.947040557861328, Mean rel error: 16.688257455825806
+Valid - Epoch: 999, Mean error: 0.418849378824234, Mean rel error: 179.58372831344604
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1501.899857873209, Mean rel error: 13.563640636018004
+Experiment: 3
+Valid - Epoch: 999, Mean error: 8.433902740478516, Mean rel error: 20.5655574798584
+Valid - Epoch: 999, Mean error: 0.528698205947876, Mean rel error: 292.4160957336426
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1202.0724017017203, Mean rel error: 10.085458585446604
+Experiment: 4
+Valid - Epoch: 999, Mean error: 13.194074630737305, Mean rel error: 21.158114075660706
+Valid - Epoch: 999, Mean error: 0.8622013330459595, Mean rel error: 60.547518730163574
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1300.4372233756633, Mean rel error: 10.075509103492724
+Experiment: 5
+Valid - Epoch: 999, Mean error: 10.618160247802734, Mean rel error: 14.568944275379181
+Valid - Epoch: 999, Mean error: 0.7413358688354492, Mean rel error: 273.73459339141846
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1254.7540738443417, Mean rel error: 10.311080668295723
+Finish experimenting for system Dune with sample size 49.
+Mean prediction relative error (%) is: 11.00, Margin (%) is: 1.30
+Save results to the results directory ...
+Save the statistics to file results/result_Dune.csv ...
+Save the raw results to file results/result_Dune_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 10.637364314152645, Mean rel error: 19.801317728482758
+Valid - Epoch: 999, Mean error: 0.6464182780339167, Mean rel error: 485.99753746619587
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1249.1927636120508, Mean rel error: 10.16458399549737
+Experiment: 2
+Valid - Epoch: 999, Mean error: 4.185306842510517, Mean rel error: 14.304766288170448
+Valid - Epoch: 999, Mean error: 0.21908230047959548, Mean rel error: 164.8240016056941
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1307.4063962115024, Mean rel error: 11.379962554069376
+Experiment: 3
+Valid - Epoch: 999, Mean error: 3.2436573322002706, Mean rel error: 10.756998795729416
+Valid - Epoch: 999, Mean error: 0.24653179828937238, Mean rel error: 171.6175079345703
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1213.5289094646791, Mean rel error: 10.315970857285834
+Experiment: 4
+Valid - Epoch: 999, Mean error: 17.229886568509617, Mean rel error: 20.829374973590557
+Valid - Epoch: 999, Mean error: 1.215077546926645, Mean rel error: 87.71778253408579
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1244.8687335214302, Mean rel error: 9.964113071978177
+Experiment: 5
+Valid - Epoch: 999, Mean error: 9.741689828725962, Mean rel error: 13.713556069594162
+Valid - Epoch: 999, Mean error: 0.8072530306302584, Mean rel error: 297.8213677039513
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1055.768275997675, Mean rel error: 8.457198034299594
+Finish experimenting for system Dune with sample size 78.
+Mean prediction relative error (%) is: 10.06, Margin (%) is: 0.92
+Save results to the results directory ...
+Save the statistics to file results/result_Dune.csv ...
+Save the raw results to file results/result_Dune_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.680196613073349, Mean rel error: 7.729335688054562
+Valid - Epoch: 999, Mean error: 0.2321227230131626, Mean rel error: 156.4739003777504
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 852.9317701105114, Mean rel error: 6.9514295010547675
+Experiment: 2
+Valid - Epoch: 999, Mean error: 2.412306159734726, Mean rel error: 8.94359964877367
+Valid - Epoch: 999, Mean error: 0.2518993504345417, Mean rel error: 236.60908490419388
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 792.0413201341446, Mean rel error: 6.555557199405319
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.1869166493415833, Mean rel error: 6.927300710231066
+Valid - Epoch: 999, Mean error: 0.19349677860736847, Mean rel error: 105.82776665687561
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 691.9308811203389, Mean rel error: 6.332929723563836
+Experiment: 4
+Valid - Epoch: 999, Mean error: 3.729306221008301, Mean rel error: 8.11728648841381
+Valid - Epoch: 999, Mean error: 0.31701282411813736, Mean rel error: 96.66858315467834
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 776.4906513445528, Mean rel error: 6.578149447641772
+Experiment: 5
+Valid - Epoch: 999, Mean error: 2.7671345472335815, Mean rel error: 7.7047573402523994
+Valid - Epoch: 999, Mean error: 0.24929512292146683, Mean rel error: 124.8918741941452
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 829.5853400249987, Mean rel error: 6.721337938098484
+Finish experimenting for system Dune with sample size 384.
+Mean prediction relative error (%) is: 6.63, Margin (%) is: 0.20
+Save results to the results directory ...
+Save the statistics to file results/result_Dune.csv ...
+Save the raw results to file results/result_Dune_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.9568137073516845, Mean rel error: 7.77140772342682
+Valid - Epoch: 999, Mean error: 0.186783467233181, Mean rel error: 124.22828590869904
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 747.3186893053984, Mean rel error: 6.510695759935993
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.8550697565078735, Mean rel error: 8.482376992702484
+Valid - Epoch: 999, Mean error: 0.21341376066207884, Mean rel error: 83.51772141456604
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 665.2797713342794, Mean rel error: 5.969502848328151
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.6582395267486572, Mean rel error: 6.094325691461563
+Valid - Epoch: 999, Mean error: 0.22344880372285844, Mean rel error: 72.98859053850174
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 719.0366063027965, Mean rel error: 6.047387152022441
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.458132028579712, Mean rel error: 4.858795166015625
+Valid - Epoch: 999, Mean error: 0.16322441697120665, Mean rel error: 70.74753093719482
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 705.5683153660003, Mean rel error: 6.1660417704412644
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.1426778364181518, Mean rel error: 6.824689701199532
+Valid - Epoch: 999, Mean error: 0.17826597541570663, Mean rel error: 106.82034492492676
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 700.5454824563868, Mean rel error: 5.953212627610145
+Finish experimenting for system Dune with sample size 600.
+Mean prediction relative error (%) is: 6.13, Margin (%) is: 0.20
+Save results to the results directory ...
+Save the statistics to file results/result_Dune.csv ...
+Save the raw results to file results/result_Dune_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.8791831107792667, Mean rel error: 4.974299814642929
+Valid - Epoch: 999, Mean error: 0.1379579442079698, Mean rel error: 561.4646517984415
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 483.2085042116862, Mean rel error: 4.623289709006513
+Experiment: 2
+Valid - Epoch: 999, Mean error: 0.9617734948421285, Mean rel error: 5.525730497170568
+Valid - Epoch: 999, Mean error: 0.15053691738765637, Mean rel error: 393.19424978116666
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 499.7589337165502, Mean rel error: 4.845120570422213
+Experiment: 3
+Valid - Epoch: 999, Mean error: 0.99243347461407, Mean rel error: 4.878238911476637
+Valid - Epoch: 999, Mean error: 0.1533620670633513, Mean rel error: 177.45457876466676
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 493.62335932373185, Mean rel error: 4.688762524387206
+Experiment: 4
+Valid - Epoch: 999, Mean error: 0.8272018539972645, Mean rel error: 4.448447464554663
+Valid - Epoch: 999, Mean error: 0.13299701361450425, Mean rel error: 372.12353253677685
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 548.9183784355046, Mean rel error: 5.26719220085464
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.2193337542478409, Mean rel error: 6.0101156274999505
+Valid - Epoch: 999, Mean error: 0.17127320600942644, Mean rel error: 128.79506982513485
+{'input_dim': 11, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 507.9718181715171, Mean rel error: 4.684130380910199
+Finish experimenting for system Dune with sample size 1600.
+Mean prediction relative error (%) is: 4.82, Margin (%) is: 0.23
+Save results to the results directory ...
+Save the statistics to file results/result_Dune.csv ...
+Save the raw results to file results/result_Dune_AutoML_veryrandom.npy ...
+javagc
+Read whole dataset javagc from csv file ...
+input size: 35, nhead: 8, d_model: 40
+Experiment: 1
+Valid - Epoch: 999, Mean error: 3.1226873431289404, Mean rel error: 17.726927054555794
+Valid - Epoch: 999, Mean error: 0.31658852225855777, Mean rel error: 196.77383004573355
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 485.8135443585091, Mean rel error: 24.227526002125284
+Experiment: 2
+Valid - Epoch: 999, Mean error: 2.36804268820244, Mean rel error: 15.113578177334968
+Valid - Epoch: 999, Mean error: 0.184249358428152, Mean rel error: 74.34135905483312
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 344.35381192609583, Mean rel error: 13.845330967765
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.4330183129561576, Mean rel error: 13.92387917167262
+Valid - Epoch: 999, Mean error: 0.14734152911002177, Mean rel error: 137.30113213522392
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 325.6397775791834, Mean rel error: 11.147170844801414
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.1293763478597005, Mean rel error: 14.342300850048401
+Valid - Epoch: 999, Mean error: 0.17582526374281499, Mean rel error: 71.44223464162727
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 401.35927243704157, Mean rel error: 19.49630384611507
+Experiment: 5
+Valid - Epoch: 999, Mean error: 2.0821011827703106, Mean rel error: 11.682636026750531
+Valid - Epoch: 999, Mean error: 0.20006683500189532, Mean rel error: 55.1433419344718
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 410.2245590456144, Mean rel error: 23.907017320884272
+Finish experimenting for system javagc with sample size 855.
+Mean prediction relative error (%) is: 18.52, Margin (%) is: 5.16
+Save results to the results directory ...
+Save the statistics to file results/result_javagc.csv ...
+Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 2.8153340975072587, Mean rel error: 34.54218550629766
+Valid - Epoch: 999, Mean error: 0.13247160789151452, Mean rel error: 79.61838665475923
+{'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
