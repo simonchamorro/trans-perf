@@ -8,10 +8,14 @@ from tqdm import tqdm
 
 
 class ModelRunner():
-    def __init__(self, data_gen, model, seq_len=1):
+    def __init__(self, data_gen, model, batch_size=32):
         self.data_gen = data_gen
         self.model = model
-        self.seq_len = seq_len
+        self.batch_size = batch_size
+        
+        # Check if GPU is available and set the device
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model.to(self.device)  # Move the model to the specified device
         
     def train(self, config, sample_size=None, number_experiment=1, cur_exp=0):
         
@@ -32,8 +36,8 @@ class ModelRunner():
         
         train_dataset = PerfDataset(x_train, y_train, self.seq_len)
         valid_dataset = PerfDataset(x_valid, y_valid, self.seq_len)
-        train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-        valid_dataloader = DataLoader(valid_dataset, batch_size=32, shuffle=True)
+        train_dataloader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
+        valid_dataloader = DataLoader(valid_dataset, batch_size=self.batch_size, shuffle=True)
         
         # Train model for 100 epochs
         optimizer = torch.optim.Adam(self.model.parameters(), 
@@ -44,6 +48,7 @@ class ModelRunner():
             error = 0.0
             num_samples = 0
             for batch_idx, (x_train, y_train) in enumerate(train_dataloader):
+                x_train, y_train = x_train.to(self.device), y_train.to(self.device)
                 output = self.model(x_train)
                 loss = torch.nn.functional.mse_loss(output, y_train)
                 optimizer.zero_grad()
@@ -60,17 +65,19 @@ class ModelRunner():
             rel_error = 0.0
             num_samples = 0
             for batch_idx, (x_valid, y_valid) in enumerate(valid_dataloader):
+                x_valid, y_valid = x_valid.to(self.device), y_valid.to(self.device)
                 output = self.model(x_valid)
-                batch_error = np.abs(y_valid.detach().numpy().ravel() - output.detach().numpy().ravel())
+                batch_error = np.abs(y_valid.detach().cpu().numpy().ravel() - output.detach().cpu().numpy().ravel())
                 error += np.sum(batch_error)
-                rel_error += np.sum(np.divide(batch_error, np.abs(y_valid.detach().numpy().ravel())))
+                rel_error += np.sum(np.divide(batch_error, np.abs(y_valid.detach().cpu().numpy().ravel())))
                 num_samples += y_valid.size(0)
             error_valid = error / num_samples
             rel_error_valid = rel_error / num_samples
         print("Valid - Epoch: {}, Mean error: {}, Mean rel error: {}".format(epoch, error_valid, rel_error_valid*100))
         return error_train, error_valid
     
-    def test(self, config, sample_size=None, number_experiment=1, cur_exp=0, save_model=False, train_model=True):
+    def test(self, config, sample_size=None, number_experiment=1, cur_exp=0, 
+             save_model=False, train_model=True):
         
         # Number of samples
         if sample_size is None:
@@ -95,8 +102,8 @@ class ModelRunner():
         
         train_dataset = PerfDataset(x_train, y_train, self.seq_len)
         test_dataset = PerfDataset(x_test, y_test, self.seq_len)
-        train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-        test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=True)
+        train_dataloader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
+        test_dataloader = DataLoader(test_dataset, batch_size=self.batch_size, shuffle=True)
         
         # Train model for n epochs
         num_epochs = config['epochs'] if train_model else 1
@@ -109,6 +116,7 @@ class ModelRunner():
                 error = 0.0
                 num_samples = 0
                 for batch_idx, (x_train, y_train) in enumerate(train_dataloader):
+                    x_train, y_train = x_train.to(self.device), y_train.to(self.device)
                     output = self.model(x_train)
                     loss = torch.nn.functional.mse_loss(output, y_train)
                     optimizer.zero_grad()
@@ -125,11 +133,12 @@ class ModelRunner():
             rel_error = 0.0
             num_samples = 0
             for batch_idx, (x_test, y_test) in enumerate(test_dataloader):
+                x_test, y_test = x_test.to(self.device), y_test.to(self.device)
                 output = self.model(x_test)
                 output = self.post_process(output, config['gnorm'], y_max, y_mean, y_std)
-                batch_error = np.abs(y_test.detach().numpy().ravel() - output)
+                batch_error = np.abs(y_test.detach().cpu().numpy().ravel() - output)
                 error += np.sum(batch_error)
-                rel_error += np.sum(np.divide(batch_error, np.abs(y_test.detach().numpy().ravel())))
+                rel_error += np.sum(np.divide(batch_error, np.abs(y_test.detach().cpu().numpy().ravel())))
                 num_samples += y_test.size(0)
             error_test = error / num_samples
             rel_error_test = rel_error / num_samples
@@ -140,7 +149,7 @@ class ModelRunner():
         return error_test, rel_error_test*100
     
     def post_process(self, output, gnorm=False, max_y=None, mean_y=None, std_y=None):
-        output = output.detach().numpy().ravel()
+        output = output.detach().cpu().numpy().ravel()
         if gnorm:
             output = output * (std_y + (std_y == 0) * .001) + mean_y
         else:

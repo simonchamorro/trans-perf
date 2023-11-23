@@ -31,7 +31,8 @@ if __name__ == '__main__':
     
     model = Transperf(input_size=src_shape)
     seq_len = src_shape if src_shape % model.nhead == 0 else (src_shape // model.nhead)*model.nhead + model.nhead
-    runner = ModelRunner(data_gen, model, seq_len=seq_len)
+    batch_size = 256 if sys_name == 'javagc' else 32
+    runner = ModelRunner(data_gen, model, seq_len=seq_len, batch_size=batch_size)
     mean_error, rel_error = runner.test(config, save_model=True)
     
     print('Mean prediction relative error (%) is: {:.2f}'.format(rel_error))

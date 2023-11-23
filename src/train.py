@@ -48,7 +48,9 @@ if __name__ == '__main__':
     src_shape = src_sample[0].shape[1]
     model = Transperf(input_size=src_shape,)  
     seq_len = src_shape if src_shape % model.nhead == 0 else (src_shape // model.nhead)*model.nhead + model.nhead  
-    runner = ModelRunner(data_gen, model, seq_len=seq_len)
+    batch_size = 256 if sys_name == 'javagc' else 32
+    print('Batch size is: {}'.format(batch_size))
+    runner = ModelRunner(data_gen, model, seq_len=seq_len, batch_size=batch_size)
     result_sys = []
 
     # Sample sizes need to be investigated
