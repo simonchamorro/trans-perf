@@ -53,7 +53,9 @@ if __name__ == '__main__':
     else:
         d_model = src_shape
     
-    runner = ModelRunner(data_gen, model)
+    batch_size = 256 if sys_name == 'javagc' else 32
+    print('Batch size is: {}'.format(batch_size))
+    runner = ModelRunner(data_gen, model, batch_size=batch_size)
     result_sys = []
 
     # Sample sizes need to be investigated

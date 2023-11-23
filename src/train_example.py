@@ -35,8 +35,8 @@ if __name__ == '__main__':
         d_model = (src_shape // nhead)*nhead + nhead
     else:
         d_model = src_shape
-    
-    runner = ModelRunner(data_gen, model)
+    batch_size = 256 if sys_name == 'javagc' else 32
+    runner = ModelRunner(data_gen, model, batch_size=batch_size)
     mean_error, rel_error = runner.test(config, save_model=True)
     
     print('Mean prediction relative error (%) is: {:.2f}'.format(rel_error))
