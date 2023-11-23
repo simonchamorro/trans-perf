@@ -1,0 +1,15 @@
+x264
+Read whole dataset x264 from csv file ...
+input size: 16, nhead: 8, d_model: 16
+Test - Epoch: 999, Mean error: 1.2321899927464641, Mean rel error: 0.2626166464860322
+Mean prediction relative error (%) is: 0.26
+Dune
+Read whole dataset Dune from csv file ...
+input size: 16, nhead: 8, d_model: 16
+Test - Epoch: 999, Mean error: 621.2558016161436, Mean rel error: 5.991463864723154
+Mean prediction relative error (%) is: 5.99
+hipacc
+Read whole dataset hipacc from csv file ...
+input size: 40, nhead: 8, d_model: 16
+Test - Epoch: 999, Mean error: 0.7628082624065832, Mean rel error: 2.057957653776974
+Mean prediction relative error (%) is: 2.06
