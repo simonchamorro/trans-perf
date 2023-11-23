@@ -8,9 +8,10 @@ from tqdm import tqdm
 
 
 class ModelRunner():
-    def __init__(self, data_gen, model):
+    def __init__(self, data_gen, model, seq_len=1):
         self.data_gen = data_gen
         self.model = model
+        self.seq_len = seq_len
         
     def train(self, config, sample_size=None, number_experiment=1, cur_exp=0):
         
@@ -29,8 +30,8 @@ class ModelRunner():
         else:
             x_train, y_train, x_valid, y_valid, _ = self.data_gen.get_train_valid_samples(train_num, seed, config['gnorm'])
         
-        train_dataset = PerfDataset(x_train, y_train, self.model.d_model)
-        valid_dataset = PerfDataset(x_valid, y_valid, self.model.d_model)
+        train_dataset = PerfDataset(x_train, y_train, self.seq_len)
+        valid_dataset = PerfDataset(x_valid, y_valid, self.seq_len)
         train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
         valid_dataloader = DataLoader(valid_dataset, batch_size=32, shuffle=True)
         
@@ -92,8 +93,8 @@ class ModelRunner():
         else:
             x_train, y_train, x_test, y_test, y_max = self.data_gen.get_train_test_samples(train_num, seed, config['gnorm'])
         
-        train_dataset = PerfDataset(x_train, y_train, self.model.d_model)
-        test_dataset = PerfDataset(x_test, y_test, self.model.d_model)
+        train_dataset = PerfDataset(x_train, y_train, self.seq_len)
+        test_dataset = PerfDataset(x_test, y_test, self.seq_len)
         train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
         test_dataloader = DataLoader(test_dataset, batch_size=32, shuffle=True)
         

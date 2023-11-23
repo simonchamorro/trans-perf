@@ -30,7 +30,8 @@ if __name__ == '__main__':
             )
     
     model = Transperf(input_size=src_shape)
-    runner = ModelRunner(data_gen, model)
+    seq_len = src_shape if src_shape % model.nhead == 0 else (src_shape // model.nhead)*model.nhead + model.nhead
+    runner = ModelRunner(data_gen, model, seq_len=seq_len)
     mean_error, rel_error = runner.test(config, save_model=True)
     
     print('Mean prediction relative error (%) is: {:.2f}'.format(rel_error))

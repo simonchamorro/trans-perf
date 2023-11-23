@@ -22,6 +22,7 @@ class Transperf(torch.nn.Module):
         self.transformer_encoder = nn.TransformerEncoder(encoder_layer, num_layers=num_encoder_layers)
         self.mlp = nn.Linear(d_model*input_size, 1)
         self.d_model = d_model
+        self.nhead = nhead
         if load_model is not None:
             self.load_model(load_model)
         
