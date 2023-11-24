@@ -1,0 +1,22 @@
+x264
+Read whole dataset x264 from csv file ...
+input size: 13, nhead: 8, d_model: 16
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [03:03<00:00,  5.44it/s]
+Test - Epoch: 999, Mean error: 0.9119716644561655, Mean rel error: 0.19849046103241974
+Mean prediction relative error (%) is: 0.20
+Dune
+Read whole dataset Dune from csv file ...
+input size: 11, nhead: 8, d_model: 16
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [06:01<00:00,  2.77it/s]
+Test - Epoch: 999, Mean error: 469.0195894899682, Mean rel error: 4.62740117982238
+Mean prediction relative error (%) is: 4.63
+hipacc
+Read whole dataset hipacc from csv file ...
+input size: 33, nhead: 8, d_model: 40
+Test - Epoch: 999, Mean error: 0.8438299890860055, Mean rel error: 2.0807628389726123
+Mean prediction relative error (%) is: 2.08
+javagc
+Read whole dataset javagc from csv file ...
+input size: 35, nhead: 8, d_model: 40
+Test - Epoch: 999, Mean error: 117.66288698866909, Mean rel error: 7.356334324942739
+Mean prediction relative error (%) is: 7.36
