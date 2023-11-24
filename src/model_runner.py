@@ -8,10 +8,11 @@ from tqdm import tqdm
 
 
 class ModelRunner():
-    def __init__(self, data_gen, model, batch_size=32):
+    def __init__(self, data_gen, model, seq_len=1, batch_size=32):
         self.data_gen = data_gen
         self.model = model
         self.batch_size = batch_size
+        self.seq_len = seq_len
         
         # Check if GPU is available and set the device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

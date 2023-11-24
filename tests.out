@@ -13,3 +13,8 @@ Read whole dataset hipacc from csv file ...
 input size: 40, nhead: 8, d_model: 16
 Test - Epoch: 999, Mean error: 0.7628082624065832, Mean rel error: 2.057957653776974
 Mean prediction relative error (%) is: 2.06
+javagc
+Read whole dataset javagc from csv file ...
+input size: 40, nhead: 8, d_model: 16
+Test - Epoch: 999, Mean error: 302.6119002471977, Mean rel error: 21.476936801425406
+Mean prediction relative error (%) is: 21.48
