@@ -23,9 +23,6 @@ if __name__ == '__main__':
     parser.add_argument("-ne", "--number_experiment",
                         help="number of experiments per sample size (integer)",
                         type=int)
-    parser.add_argument("-ss", "--sample_size",
-                        help="sample size to be evaluated (integer)",
-                        type=int)
     args = parser.parse_args()
 
     # System to be evaluated:
@@ -37,13 +34,6 @@ if __name__ == '__main__':
         n_exp = int(args.number_experiment)
     else:
         n_exp = 5
-
-    # The sample size to be evaluated
-    if args.sample_size is not None:
-        sample_size_all = []
-        sample_size_all.append(int(args.sample_size))
-    else:
-        sample_size_all = list(system_samplesize(sys_name))
 
     data_gen = DataPreproc(sys_name)
     src_sample = data_gen.get_train_valid_samples(1, 1)
@@ -59,64 +49,45 @@ if __name__ == '__main__':
     print('Batch size is: {}'.format(batch_size))
     runner = InterpretableModelRunner(data_gen, model, batch_size=batch_size)
     result_sys = []
+    all_attributions = []
+    all_convergence_deltas = []
 
-    # Sample sizes need to be investigated
-    for idx in range(len(sample_size_all)):
-        N_train = sample_size_all[idx]
-        rel_error_mean = []
-        attributions_mean = []
-        convergence_deltas_mean = []
+    for m in range(1, n_exp+1):
+        print("Experiment: {}".format(m))
 
-        if (N_train >= data_gen.all_sample_num):
-            raise AssertionError("Sample size can't be larger than whole data")
+        start = time.time()
 
-        for m in range(1, n_exp+1):
-            print("Experiment: {}".format(m))
+        model.eval()
 
-            start = time.time()
+        ig = IntegratedGradients(model)
+        input = x_test
+        baseline = torch.zeros_like(input)
+        attributions, convergence_delta = ig.attribute(input, baseline, target=0, return_convergence_delta=True)
+        print('IG Attributions:', attributions)
+        print('Convergence Delta:', convergence_delta)
 
-            ig = IntegratedGradients(model)
-            input = x_test
-            baseline = torch.zeros_like(input)
-            attributions, convergence_delta = ig.attribute(input, baseline, target=0, return_convergence_delta=True)
-            print('IG Attributions:', attributions)
-            print('Convergence Delta:', convergence_delta)
-            
-            mean_error, rel_error, attributions, convergence_delta = runner.test(best_config, N_train, n_exp, m)
-            rel_error_mean.append(rel_error)
-            attributions_mean.append(attributions)
-            convergence_deltas_mean.append(convergence_delta)
+        all_attributions.append(attributions)
+        all_convergence_deltas.append(convergence_delta)
 
-        result = dict()
-        result["N_train"] = N_train
-        result["rel_error_mean"] = rel_error_mean
-        result["attributions_mean"] = attributions_mean / n_exp
-        result["convergence_deltas_mean"] = convergence_deltas_mean / n_exp
-        result_sys.append(result)
+    result = dict()
+    result["attributions_mean"] = all_attributions / n_exp
+    result["convergence_deltas_mean"] = all_convergence_deltas / n_exp
+    result_sys.append(result)
 
 
-        # Compute some statistics: mean, confidence interval
-        result = []
-        for i in range(len(result_sys)):
-            temp = result_sys[i]
-            sd_error_temp = np.sqrt(np.var(temp['rel_error_mean'], ddof=1))
-            ci_temp = 1.96*sd_error_temp/np.sqrt(len(temp['rel_error_mean']))
-            result_exp = [temp['N_train'], np.mean(temp['rel_error_mean']), ci_temp]
-            result.append(result_exp)
-        result_arr = np.asarray(result)
+    # Compute some statistics: mean, confidence interval
 
-        print('Finish experimenting for system {} with sample size {}.'.format(sys_name, N_train))
-        print('Mean prediction relative error (%) is: {:.2f}, Margin (%) is: {:.2f}'.format(np.mean(rel_error_mean), ci_temp))
-        print('IG Attributions Mean:', result["attributions_mean"])
-        print('Convergence Deltas Mean:', result["convergence_deltas_mean"])
+    print('Finish experimenting for system {} with {} experiments.'.format(sys_name, n_exp))
+    print('IG Attributions Mean:', result["attributions_mean"])
+    print('Convergence Deltas Mean:', result["convergence_deltas_mean"])
 
-        # Save the result statistics to a csv file after each sample
-        # Save the raw results to an .npy file
-        print('Save results to the results directory ...')
-        filename = 'results/result_' + sys_name + '.csv'
-        np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="Sample size, Mean, Margin")
-        print('Save the statistics to file ' + filename + ' ...')
+    # Save the result statistics to a csv file after each sample
+    # Save the raw results to an .npy file
+    # print('Save results to the results directory ...')
+    # filename = 'results/result_' + sys_name + '.csv'
+    # np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="Sample size, Mean, Margin")
+    # print('Save the statistics to file ' + filename + ' ...')
 
-        filename = 'results/result_' + sys_name + '_AutoML_veryrandom.npy'
-        np.save(filename, result_sys)
-        print('Save the raw results to file ' + filename + ' ...')
+    # filename = 'results/result_' + sys_name + '_AutoML_veryrandom.npy'
+    # np.save(filename, result_sys)
+    # print('Save the raw results to file ' + filename + ' ...')
