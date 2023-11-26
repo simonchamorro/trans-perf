@@ -9,8 +9,9 @@ from model import Transperf
 from interpretable_model_runner import InterpretableModelRunner
 from dataset import PerfDataset
 from torch.utils.data import DataLoader
+from torch.utils.data import ConcatDataset
 
-from captum.attr import IntegratedGradients
+from captum.attr import IntegratedGradients, DeepLift, GradientShap, NoiseTunnel, FeatureAblation
 
 
 if __name__ == '__main__':
@@ -45,41 +46,77 @@ if __name__ == '__main__':
     else:
         d_model = src_shape
     
-    batch_size = 256 if sys_name == 'javagc' else 32
+    batch_size = 1
     print('Batch size is: {}'.format(batch_size))
-    runner = InterpretableModelRunner(data_gen, model, batch_size=batch_size)
-    result_sys = []
-    all_attributions = []
-    all_convergence_deltas = []
 
-    for m in range(1, n_exp+1):
-        print("Experiment: {}".format(m))
+    # Set seed
+    seed_init = seed_generator(data_gen.sys_name, n_exp)
+    seed = seed_init * n_exp
+
+    torch.manual_seed(123)
+    np.random.seed(123)
+
+    x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(n_exp, seed)
+
+    train_dataset = PerfDataset(x_train, y_train, model.d_model)
+    valid_dataset = PerfDataset(x_valid, y_valid, model.d_model)
+    combined_dataset = ConcatDataset([train_dataset, valid_dataset])
+
+    dataloader = DataLoader(combined_dataset, batch_size=batch_size, shuffle=True)
+
+    result_sys = []
+    ig_all_attributions = []
+    ig_all_convergence_deltas = []
+    dl_all_attributions = []
+    exp_counter = 0
+
+    for batch_idx, (x_test, y_test) in enumerate(dataloader):
+        exp_counter += 1
+        if exp_counter > n_exp:
+            break
+        print("Experiment: {}".format(exp_counter))
 
         start = time.time()
 
         model.eval()
+        prediction = model.forward(x_test)
+        print('Model Prediction:', prediction)
 
-        ig = IntegratedGradients(model)
+        # Calculate model error
+        error = torch.abs(prediction - y_test)
+        print('Model Error:', error)
+
         input = x_test
         baseline = torch.zeros_like(input)
-        attributions, convergence_delta = ig.attribute(input, baseline, target=0, return_convergence_delta=True)
-        print('IG Attributions:', attributions)
-        print('Convergence Delta:', convergence_delta)
 
-        all_attributions.append(attributions)
-        all_convergence_deltas.append(convergence_delta)
+        ig = IntegratedGradients(model)
+        dl = DeepLift(model)
+        
+        ig_attributions, ig_convergence_delta = ig.attribute(input, baseline, target=0, return_convergence_delta=True)
+        print('IG Attributions:', ig_attributions)
+        print('IG Convergence Delta:', ig_convergence_delta)
 
-    result = dict()
-    result["attributions_mean"] = all_attributions / n_exp
-    result["convergence_deltas_mean"] = all_convergence_deltas / n_exp
-    result_sys.append(result)
+        dl_attributions = dl.attribute(input, baseline, target=0, return_convergence_delta=True)
+        print('DL Attributions:', dl_attributions)
+
+        ig_all_attributions.append(ig_attributions)
+        ig_all_convergence_deltas.append(ig_convergence_delta)
+
+        dl_all_attributions.append(ig_attributions)
+
+
+    ig_attributions_mean = sum(ig_all_attributions) / n_exp
+    ig_convergence_deltas_mean = sum(ig_all_convergence_deltas) / n_exp
+
+    dl_attributions_mean = sum(dl_all_attributions) / n_exp
 
 
     # Compute some statistics: mean, confidence interval
 
     print('Finish experimenting for system {} with {} experiments.'.format(sys_name, n_exp))
-    print('IG Attributions Mean:', result["attributions_mean"])
-    print('Convergence Deltas Mean:', result["convergence_deltas_mean"])
+    print('IG Attributions Mean:', ig_all_attributions)
+    print('IG Convergence Deltas Mean:', ig_convergence_deltas_mean)
+    print('DL Attributions Mean:', dl_attributions_mean)
 
     # Save the result statistics to a csv file after each sample
     # Save the raw results to an .npy file
