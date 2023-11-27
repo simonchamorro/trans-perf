@@ -90,12 +90,12 @@ if __name__ == '__main__':
 
     result = dict()
 
-    result["IG"] = ig_attr_test
-    result["IG_NT"] = ig_nt_attr_test
-    result["DL"] = dl_attr_test
-    result["GS"] = gs_attr_test
-    result["FA"] = fa_attr_test
-    result["SA"] = sa_attr_test
+    result["IG"] = ig_attr_test[:, :, 0]
+    result["IG_NT"] = ig_nt_attr_test[:, :, 0]
+    result["DL"] = dl_attr_test[:, :, 0]
+    result["GS"] = gs_attr_test[:, :, 0]
+    result["FA"] = fa_attr_test[:, :, 0]
+    result["SA"] = sa_attr_test[:, :, 0]
 
     print("\n")
     print('Finish feature attribution for system {}.'.format(sys_name))

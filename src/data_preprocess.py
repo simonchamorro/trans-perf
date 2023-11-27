@@ -172,3 +172,10 @@ class DataPreproc():
             X_test_norm = np.divide(X_test, max_X)
 
             return X_train_norm, Y_train_norm, X_test_norm, Y_test, max_Y
+
+    def get_feature_names(self):
+        feature_names = []
+        with open(self.data_dir, 'r') as f:
+            feature_names = f.readline().split(',')
+            feature_names = feature_names[0:len(feature_names)-1]
+        return feature_names
