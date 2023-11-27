@@ -126,7 +126,7 @@ if __name__ == '__main__':
     # Save the raw results to an .npy file
     print('Save results to the results directory ...')
     # filename = 'results/feature_attribution_' + sys_name
-    filename = 'results/feature_attribution_' + sys_name + '_' + str(sample_size) + '.csv'
+    filename = 'results/feature_attribution_seq_' + sys_name + '_' + str(sample_size) + '.csv'
     # np.savetxt(filename, np.asarray(result), fmt="%f", delimiter=",", header="IG, IG_NT, DL, GS, FA")
     # np.save(filename, result)
     
@@ -200,7 +200,7 @@ if __name__ == '__main__':
 
         plt.legend(legends, loc=3)
         # plt.show()
-        plt.savefig('plots/feature_attribution_' + dataset_name + '_' + str(sample_size) + '.png')
+        plt.savefig('plots/feature_attribution_seq_' + dataset_name + '_' + str(sample_size) + '.png')
 
     feature_names = data_gen.get_feature_names()
     for i in range(model.d_model - src_shape):
