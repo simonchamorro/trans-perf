@@ -11,7 +11,8 @@ from dataset import PerfDataset
 from torch.utils.data import DataLoader
 from torch.utils.data import ConcatDataset
 
-from captum.attr import IntegratedGradients, DeepLift, GradientShap, NoiseTunnel, FeatureAblation, Saliency
+from captum.attr import Saliency
+from captum.metrics import sensitivity_max, infidelity
 import csv
 
 
@@ -72,30 +73,25 @@ if __name__ == '__main__':
     x_valid_shape = x_valid.shape
     print('x_valid_shape: {}'.format(x_valid_shape))
 
-    ig = IntegratedGradients(model)
-    ig_nt = NoiseTunnel(ig)
-    dl = DeepLift(model)
-    gs = GradientShap(model)
-    fa = FeatureAblation(model)
-    sa = Saliency(model)
+    input = x_train
 
     model.eval()
 
-    ig_attr_test = ig.attribute(x_valid, n_steps=50)
-    ig_nt_attr_test = ig_nt.attribute(x_valid)
-    dl_attr_test = dl.attribute(x_valid)
-    gs_attr_test = gs.attribute(x_valid, x_train)
-    fa_attr_test = fa.attribute(x_valid)
-    sa_attr_test = sa.attribute(x_valid)
+    saliency = Saliency(model)
+    saliency_attribution = saliency.attribute(input)
+
+    def perturb_fn(inputs):
+       noise = torch.tensor(np.random.normal(0, 0.003, inputs.shape)).float()
+       return noise, inputs - noise
+    
+    # Computes infidelity score for saliency maps
+    infid = infidelity(model, perturb_fn, input, saliency_attribution)
+    sens = sensitivity_max(saliency.attribute, input, target = 3)
 
     result = dict()
 
-    result["IG"] = ig_attr_test
-    result["IG_NT"] = ig_nt_attr_test
-    result["DL"] = dl_attr_test
-    result["GS"] = gs_attr_test
-    result["FA"] = fa_attr_test
-    result["SA"] = sa_attr_test
+    result["infidelity"] = infid
+    result["sensitivity"] = sens
 
     print("\n")
     print('Finish feature attribution for system {}.'.format(sys_name))
@@ -106,7 +102,7 @@ if __name__ == '__main__':
     # Save the raw results to an .npy file
     print('Save results to the results directory ...')
     # filename = 'results/feature_attribution_' + sys_name
-    filename = 'results/feature_attribution_' + sys_name + '.csv'
+    filename = 'results/sens_infid_' + sys_name + '.csv'
     # np.savetxt(filename, np.asarray(result), fmt="%f", delimiter=",", header="IG, IG_NT, DL, GS, FA")
     # np.save(filename, result)
 
@@ -145,30 +141,14 @@ if __name__ == '__main__':
         x_axis_data = np.arange(src_shape)
         x_axis_data_labels = list(map(lambda idx: feature_names[idx], x_axis_data))
 
-        ig_attr_test_sum = data["IG"].detach().numpy().sum(0)
+        ig_attr_test_sum = data["infidelity"].detach().numpy().sum(0)
         ig_attr_test_norm_sum = ig_attr_test_sum / np.linalg.norm(ig_attr_test_sum, ord=1)
 
-        ig_nt_attr_test_sum = data["IG_NT"].detach().numpy().sum(0)
+        ig_nt_attr_test_sum = data["sensitivity"].detach().numpy().sum(0)
         ig_nt_attr_test_norm_sum = ig_nt_attr_test_sum / np.linalg.norm(ig_nt_attr_test_sum, ord=1)
 
-        dl_attr_test_sum = data["DL"].detach().numpy().sum(0)
-        dl_attr_test_norm_sum = dl_attr_test_sum / np.linalg.norm(dl_attr_test_sum, ord=1)
-
-        gs_attr_test_sum = data["GS"].detach().numpy().sum(0)
-        gs_attr_test_norm_sum = gs_attr_test_sum / np.linalg.norm(gs_attr_test_sum, ord=1)
-
-        fa_attr_test_sum = data["FA"].detach().numpy().sum(0)
-        fa_attr_test_norm_sum = fa_attr_test_sum / np.linalg.norm(fa_attr_test_sum, ord=1)
-        
-        sa_attr_test_sum = data["SA"].detach().numpy().sum(0)
-        sa_attr_test_norm_sum = sa_attr_test_sum / np.linalg.norm(sa_attr_test_sum, ord=1)
-
-        multihead_attn = model.transformer_encoder.layers[0].self_attn
-        lin_weight = multihead_attn.out_proj.weight[0].detach().numpy()
-        y_axis_lin_weight = lin_weight / np.linalg.norm(lin_weight, ord=1)
-
         width = 0.14
-        legends = ['Int Grads', 'Int Grads w/ Noise Tunnel','DeepLift', 'GradientSHAP', 'Feature Ablation', 'Saliency', 'Weights']
+        legends = ['Int Grads', 'Int Grads w/SmoothGrad','DeepLift', 'GradientSHAP', 'Feature Ablation', 'Weights']
         # legends = ['Int Grads', 'Int Grads w/SmoothGrad','DeepLift', 'GradientSHAP', 'Feature Ablation']
 
         plt.figure(figsize=(20, 10))
@@ -185,22 +165,15 @@ if __name__ == '__main__':
 
         ax.bar(x_axis_data, ig_attr_test_norm_sum, width, align='center', alpha=0.8, color='#eb5e7c')
         ax.bar(x_axis_data + width, ig_nt_attr_test_norm_sum, width, align='center', alpha=0.7, color='#A90000')
-        ax.bar(x_axis_data + 2 * width, dl_attr_test_norm_sum, width, align='center', alpha=0.6, color='#34b8e0')
-        ax.bar(x_axis_data + 3 * width, gs_attr_test_norm_sum, width, align='center',  alpha=0.8, color='#4260f5')
-        ax.bar(x_axis_data + 4 * width, fa_attr_test_norm_sum, width, align='center', alpha=1.0, color='#49ba81')
-        ax.bar(x_axis_data + 5 * width, sa_attr_test_norm_sum, width, align='center', alpha=1.0, color='orange')
-        ax.bar(x_axis_data + 6 * width, y_axis_lin_weight, width, align='center', alpha=0.8, color='grey')
         ax.autoscale_view()
         plt.tight_layout()
 
         ax.set_xticks(x_axis_data + 0.5)
         ax.set_xticklabels(x_axis_data_labels)
-        plt.xticks(rotation=45, ha="right")
-        plt.subplots_adjust(bottom=0.15)  # Adjust the bottom margin
 
         plt.legend(legends, loc=3)
         # plt.show()
-        plt.savefig('plots/feature_attribution_' + dataset_name + '_' + str(sample_size) + '.png')
+        plt.savefig('plots/sens_infid_' + dataset_name + '_' + str(sample_size) + '.png')
 
     feature_names = data_gen.get_feature_names()
     for i in range(model.d_model - src_shape):
