@@ -175,5 +175,8 @@ class DataPreproc():
         
 
     def get_feature_names(self):
-        feature_names = genfromtxt(self.data_dir, delimiter=',', max_rows=1)
+        feature_names = []
+        with open(self.data_dir, 'r') as f:
+            feature_names = f.readline().split(',')
+            feature_names = feature_names[0:len(feature_names)-1]
         return feature_names

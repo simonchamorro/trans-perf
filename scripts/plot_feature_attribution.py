@@ -2,6 +2,10 @@ import argparse
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+
+import sys
+sys.path.insert(0, 'D:\\PolyLocal\\DevOps\\TransPerf\\trans-perf')
+
 from src.data_preprocess import DataPreproc
 from src.model import Transperf
 
@@ -105,8 +109,9 @@ def main():
     sys_name = args.system_name
     print(sys_name)
 
+    # path = 'results/feature_attribution_' + sys_name + '.npy'
     path = 'results/feature_attribution_' + sys_name + '.csv'
-    data = load_file(path, sys_name)
+    data = load_file(path)
     
     data_gen = DataPreproc(sys_name)
     src_sample = data_gen.get_train_valid_samples(1, 1)
