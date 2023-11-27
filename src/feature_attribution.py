@@ -51,8 +51,8 @@ if __name__ == '__main__':
     print('x_all_shape: {}'.format(x_all_shape))
     
     # Split whole dataset
-    x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(10, seed)
-    # x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(x_all_shape[0], seed)
+    # x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(10, seed)
+    x_train, y_train, x_valid, y_valid, _ = data_gen.get_train_valid_samples(x_all_shape[0], seed)
     # x_all = ConcatDataset([x_train, x_valid])
 
     x_train = PerfDataset(x_train, y_train, model.d_model).x

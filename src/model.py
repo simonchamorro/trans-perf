@@ -29,11 +29,14 @@ class Transperf(torch.nn.Module):
         output = self.transformer_encoder(src, src_mask, src_key_padding_mask)
         output = self.mlp(output)
         return output
-    
+
     def save_model(self, path):
         torch.save(self.state_dict(), path)
-    
+
     def load_model(self, path):
-        self.load_state_dict(torch.load(path))
+        if torch.cuda.is_available():
+            self.load_state_dict(torch.load(path))
+        else:
+            self.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
         
         
