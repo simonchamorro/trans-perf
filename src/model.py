@@ -36,6 +36,9 @@ class Transperf(torch.nn.Module):
         torch.save(self.state_dict(), path)
     
     def load_model(self, path):
-        self.load_state_dict(torch.load(path))
+        if torch.cuda.is_available():
+            self.load_state_dict(torch.load(path))
+        else:
+            self.load_state_dict(torch.load(path, map_location=torch.device('cpu')))
         
         
