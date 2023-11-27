@@ -1,154 +1,154 @@
 javagc
 Read whole dataset javagc from csv file ...
-input size: 35, nhead: 8, d_model: 40
+input size: 40, nhead: 8, d_model: 16
 Batch size is: 256
 Experiment: 1
-Valid - Epoch: 999, Mean error: 3.349638567472759, Mean rel error: 23.891237660458213
-Valid - Epoch: 999, Mean error: 0.3815673376384534, Mean rel error: 244.02789099174635
+Valid - Epoch: 999, Mean error: 4.598724980939899, Mean rel error: 55.10871853744774
+Valid - Epoch: 999, Mean error: 0.509423359653406, Mean rel error: 257.27037396347316
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 608.067246072476, Mean rel error: 45.840466688137134
+Test - Epoch: 999, Mean error: 644.4423552192616, Mean rel error: 43.914070285875255
 Experiment: 2
-Valid - Epoch: 999, Mean error: 2.490294888145045, Mean rel error: 14.060427515130295
-Valid - Epoch: 999, Mean error: 0.23424924883926124, Mean rel error: 85.78507540518777
+Valid - Epoch: 999, Mean error: 4.273098032098067, Mean rel error: 44.30175379702919
+Valid - Epoch: 999, Mean error: 0.27387043133116606, Mean rel error: 120.3972287763629
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 370.80802653961507, Mean rel error: 17.7453264938801
+Test - Epoch: 999, Mean error: 508.46689869773326, Mean rel error: 33.262580877521316
 Experiment: 3
-Valid - Epoch: 999, Mean error: 1.4355457506681744, Mean rel error: 16.450249437700236
-Valid - Epoch: 999, Mean error: 0.200522079802396, Mean rel error: 126.74152842739173
+Valid - Epoch: 999, Mean error: 2.9573165090460525, Mean rel error: 41.56615809390419
+Valid - Epoch: 999, Mean error: 0.2604912657486765, Mean rel error: 154.12845946194832
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 337.09847471264027, Mean rel error: 14.384374920010115
+Test - Epoch: 999, Mean error: 519.7018395326728, Mean rel error: 34.5655478259479
 Experiment: 4
-Valid - Epoch: 999, Mean error: 1.3516621907552084, Mean rel error: 15.635520533511512
-Valid - Epoch: 999, Mean error: 0.1511135268629643, Mean rel error: 75.59945257086504
+Valid - Epoch: 999, Mean error: 2.6682159691526177, Mean rel error: 45.31940594054105
+Valid - Epoch: 999, Mean error: 0.25349199228119434, Mean rel error: 102.6733826754386
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 322.06421285308227, Mean rel error: 14.056381553735244
+Test - Epoch: 999, Mean error: 614.0157379073064, Mean rel error: 39.97189598087879
 Experiment: 5
-Valid - Epoch: 999, Mean error: 2.07884631240577, Mean rel error: 14.456084569295246
-Valid - Epoch: 999, Mean error: 0.242101480249773, Mean rel error: 73.12853896827029
+Valid - Epoch: 999, Mean error: 4.25218794973273, Mean rel error: 52.263093914902
+Valid - Epoch: 999, Mean error: 0.34550894687050265, Mean rel error: 278.09450651469984
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 455.2728075130442, Mean rel error: 31.336863744189486
+Test - Epoch: 999, Mean error: 641.4697165737988, Mean rel error: 43.282307668298046
 Finish experimenting for system javagc with sample size 855.
-Mean prediction relative error (%) is: 24.67, Margin (%) is: 12.07
+Mean prediction relative error (%) is: 39.00, Margin (%) is: 4.29
 Save results to the results directory ...
 Save the statistics to file results/result_javagc.csv ...
 Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...
 Experiment: 1
-Valid - Epoch: 999, Mean error: 1.196484622487944, Mean rel error: 10.084943871514799
-Valid - Epoch: 999, Mean error: 0.12657049795571398, Mean rel error: 75.54533078205905
+Valid - Epoch: 999, Mean error: 1.899787537831826, Mean rel error: 23.978668221793072
+Valid - Epoch: 999, Mean error: 0.19791976768466946, Mean rel error: 121.02749667618349
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 252.00548930204968, Mean rel error: 10.15157275754138
+Test - Epoch: 999, Mean error: 449.4648581155907, Mean rel error: 28.975587934944652
 Experiment: 2
-Valid - Epoch: 999, Mean error: 0.4145309621839846, Mean rel error: 10.493503290129654
-Valid - Epoch: 999, Mean error: 0.10759540255178231, Mean rel error: 50.013282446488475
+Valid - Epoch: 999, Mean error: 0.6677950900243628, Mean rel error: 27.636576310895567
+Valid - Epoch: 999, Mean error: 0.16548970866787532, Mean rel error: 83.34364073140202
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 319.7226944130191, Mean rel error: 19.534683498801357
+Test - Epoch: 999, Mean error: 475.26902941744646, Mean rel error: 28.925391060765886
 Experiment: 3
-Valid - Epoch: 999, Mean error: 0.3822993097116121, Mean rel error: 8.094421373365083
-Valid - Epoch: 999, Mean error: 0.0974578211994683, Mean rel error: 49.404157640775416
+Valid - Epoch: 999, Mean error: 0.8199846407913689, Mean rel error: 26.050092236442072
+Valid - Epoch: 999, Mean error: 0.18991753323353575, Mean rel error: 120.20099688856021
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 347.04504319002643, Mean rel error: 26.879194145016843
+Test - Epoch: 999, Mean error: 445.79565150907445, Mean rel error: 28.428095515135166
 Experiment: 4
-Valid - Epoch: 999, Mean error: 0.41155505319459573, Mean rel error: 10.696142056441781
-Valid - Epoch: 999, Mean error: 0.08241239478735551, Mean rel error: 42.7477759825307
+Valid - Epoch: 999, Mean error: 0.9614869855526865, Mean rel error: 28.907643009929146
+Valid - Epoch: 999, Mean error: 0.1959587150582633, Mean rel error: 87.93959200312682
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 258.39954140965546, Mean rel error: 12.027487970002358
+Test - Epoch: 999, Mean error: 450.440843476016, Mean rel error: 27.018521721379944
 Experiment: 5
-Valid - Epoch: 999, Mean error: 0.4452449349010561, Mean rel error: 11.047370959607973
-Valid - Epoch: 999, Mean error: 0.11563638155212759, Mean rel error: 31.99557078482807
+Valid - Epoch: 999, Mean error: 0.8789319424534623, Mean rel error: 26.331138833400946
+Valid - Epoch: 999, Mean error: 0.2155920516095334, Mean rel error: 84.89504606053319
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 305.4890636336766, Mean rel error: 20.857953548144746
+Test - Epoch: 999, Mean error: 402.44576530353453, Mean rel error: 24.000817961273636
 Finish experimenting for system javagc with sample size 2571.
-Mean prediction relative error (%) is: 17.89, Margin (%) is: 5.99
+Mean prediction relative error (%) is: 27.47, Margin (%) is: 1.84
 Save results to the results directory ...
 Save the statistics to file results/result_javagc.csv ...
 Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...
 Experiment: 1
-Valid - Epoch: 999, Mean error: 0.4415430427777885, Mean rel error: 10.923435853259399
-Valid - Epoch: 999, Mean error: 0.08685764652667659, Mean rel error: 116.15813982368697
+Valid - Epoch: 999, Mean error: 0.6327751839515006, Mean rel error: 25.111392937084236
+Valid - Epoch: 999, Mean error: 0.15445064129215655, Mean rel error: 214.5439903334816
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 251.66069311903487, Mean rel error: 15.335764911315664
+Test - Epoch: 999, Mean error: 398.3359844180031, Mean rel error: 22.377665840876496
 Experiment: 2
-Valid - Epoch: 999, Mean error: 0.5031693033652731, Mean rel error: 13.73263670666383
-Valid - Epoch: 999, Mean error: 0.0965704587426516, Mean rel error: 47.85147109834275
+Valid - Epoch: 999, Mean error: 0.8229819420540687, Mean rel error: 27.51627780423306
+Valid - Epoch: 999, Mean error: 0.16860885620117189, Mean rel error: 129.65729515151224
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 231.92735799021946, Mean rel error: 12.927168328260233
+Test - Epoch: 999, Mean error: 399.79317053078864, Mean rel error: 23.97341119312558
 Experiment: 3
-Valid - Epoch: 999, Mean error: 1.342731498491646, Mean rel error: 9.178744778774753
-Valid - Epoch: 999, Mean error: 0.1297971782117787, Mean rel error: 39.623473516785275
+Valid - Epoch: 999, Mean error: 2.1647037619411353, Mean rel error: 21.148443694161898
+Valid - Epoch: 999, Mean error: 0.2127708586135713, Mean rel error: 93.48477807375464
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 195.5980979136407, Mean rel error: 8.01431934089957
+Test - Epoch: 999, Mean error: 458.18329849779303, Mean rel error: 31.608092979969648
 Experiment: 4
-Valid - Epoch: 999, Mean error: 0.4917472763816909, Mean rel error: 9.557872432293278
-Valid - Epoch: 999, Mean error: 0.09728634333846593, Mean rel error: 46.71116517321898
+Valid - Epoch: 999, Mean error: 0.8127543836536975, Mean rel error: 20.234960801530594
+Valid - Epoch: 999, Mean error: 0.17256730712286317, Mean rel error: 102.66928644463566
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 188.90880836819633, Mean rel error: 7.041096688955179
+Test - Epoch: 999, Mean error: 391.1401818551691, Mean rel error: 23.57828295720169
 Experiment: 5
-Valid - Epoch: 999, Mean error: 0.49839149701713337, Mean rel error: 17.116071115625967
-Valid - Epoch: 999, Mean error: 0.10245340555021078, Mean rel error: 28.36046577680229
+Valid - Epoch: 999, Mean error: 0.6627779667920405, Mean rel error: 22.722351149757312
+Valid - Epoch: 999, Mean error: 0.19053361722738435, Mean rel error: 109.77855569065207
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 179.87795343510945, Mean rel error: 7.724458026646089
+Test - Epoch: 999, Mean error: 385.9445230936991, Mean rel error: 21.36755271421635
 Finish experimenting for system javagc with sample size 3032.
-Mean prediction relative error (%) is: 10.21, Margin (%) is: 3.24
+Mean prediction relative error (%) is: 24.58, Margin (%) is: 3.56
 Save results to the results directory ...
 Save the statistics to file results/result_javagc.csv ...
 Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...
 Experiment: 1
-Valid - Epoch: 999, Mean error: 0.34398140341548594, Mean rel error: 14.085766420526019
-Valid - Epoch: 999, Mean error: 0.06620042768575378, Mean rel error: 21.452456113308838
+Valid - Epoch: 999, Mean error: 0.4957262545655676, Mean rel error: 24.129767983646715
+Valid - Epoch: 999, Mean error: 0.17199182025456833, Mean rel error: 81.61328418106683
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 192.5120959864339, Mean rel error: 9.625478823913788
+Test - Epoch: 999, Mean error: 382.6919782135585, Mean rel error: 23.02955929823107
 Experiment: 2
-Valid - Epoch: 999, Mean error: 0.39850142311915165, Mean rel error: 8.661325530143781
-Valid - Epoch: 999, Mean error: 0.09427668253580729, Mean rel error: 34.046439046913626
+Valid - Epoch: 999, Mean error: 0.8723788676288842, Mean rel error: 29.188599451787056
+Valid - Epoch: 999, Mean error: 0.18147903054447498, Mean rel error: 97.16656097584526
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 191.43195080278971, Mean rel error: 10.420124187726888
+Test - Epoch: 999, Mean error: 391.28425965879217, Mean rel error: 24.632234300658226
 Experiment: 3
-Valid - Epoch: 999, Mean error: 0.22043811776543742, Mean rel error: 7.744855611337781
-Valid - Epoch: 999, Mean error: 0.07620542278397555, Mean rel error: 53.48513953429831
+Valid - Epoch: 999, Mean error: 0.5127819686286194, Mean rel error: 22.494475154553427
+Valid - Epoch: 999, Mean error: 0.14854842363777807, Mean rel error: 223.95081083653338
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 208.63792075249938, Mean rel error: 10.957490941507912
+Test - Epoch: 999, Mean error: 374.0157157738465, Mean rel error: 21.289270097004632
 Experiment: 4
-Valid - Epoch: 999, Mean error: 0.3045716969980358, Mean rel error: 9.74938247163417
-Valid - Epoch: 999, Mean error: 0.07633947598732124, Mean rel error: 39.724607521531276
+Valid - Epoch: 999, Mean error: 0.6109029694465594, Mean rel error: 26.916482354288046
+Valid - Epoch: 999, Mean error: 0.15652661943166268, Mean rel error: 100.71664583885062
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 205.03292045513862, Mean rel error: 14.041085230958819
+Test - Epoch: 999, Mean error: 377.9980361800259, Mean rel error: 23.944224748182496
 Experiment: 5
-Valid - Epoch: 999, Mean error: 0.8305556647521628, Mean rel error: 10.972921080508474
-Valid - Epoch: 999, Mean error: 0.09307278670833609, Mean rel error: 75.8736458471266
+Valid - Epoch: 999, Mean error: 1.4753579005009712, Mean rel error: 24.10576233082572
+Valid - Epoch: 999, Mean error: 0.17955952876031736, Mean rel error: 268.55558492369573
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 210.5587579273031, Mean rel error: 9.16828439631589
+Test - Epoch: 999, Mean error: 339.1027073081578, Mean rel error: 19.34597356210789
 Finish experimenting for system javagc with sample size 5312.
-Mean prediction relative error (%) is: 10.84, Margin (%) is: 1.68
+Mean prediction relative error (%) is: 22.45, Margin (%) is: 1.88
 Save results to the results directory ...
 Save the statistics to file results/result_javagc.csv ...
 Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...
 Experiment: 1
-Valid - Epoch: 999, Mean error: 0.2199644525206626, Mean rel error: 10.869347317247268
-Valid - Epoch: 999, Mean error: 0.08547570512661405, Mean rel error: 44.76876011959291
+Valid - Epoch: 999, Mean error: 0.3942250154123596, Mean rel error: 19.44719884730172
+Valid - Epoch: 999, Mean error: 0.17004112859146683, Mean rel error: 97.43203864350158
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 166.53898768371891, Mean rel error: 10.293467818544963
+Test - Epoch: 999, Mean error: 237.30330888547064, Mean rel error: 16.57504758431399
 Experiment: 2
-Valid - Epoch: 999, Mean error: 0.18686791116955892, Mean rel error: 7.499373954346156
-Valid - Epoch: 999, Mean error: 0.08149095268014707, Mean rel error: 37.62662870758277
+Valid - Epoch: 999, Mean error: 0.38482846766332607, Mean rel error: 18.69821331785018
+Valid - Epoch: 999, Mean error: 0.12638822517472464, Mean rel error: 135.14218434220493
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 150.27259468985474, Mean rel error: 8.66342142905082
+Test - Epoch: 999, Mean error: 248.45507008284184, Mean rel error: 17.734590028472198
 Experiment: 3
-Valid - Epoch: 999, Mean error: 0.23247706905521462, Mean rel error: 15.159014027234482
-Valid - Epoch: 999, Mean error: 0.09671936091021152, Mean rel error: 61.508632665683585
+Valid - Epoch: 999, Mean error: 0.39302998352351687, Mean rel error: 19.205085378952788
+Valid - Epoch: 999, Mean error: 0.12548517085438785, Mean rel error: 152.8447862209872
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 118.89931731762377, Mean rel error: 9.113326561981847
+Test - Epoch: 999, Mean error: 254.10809565964652, Mean rel error: 17.50078319030134
 Experiment: 4
-Valid - Epoch: 999, Mean error: 0.20745886290294757, Mean rel error: 7.891506364537563
-Valid - Epoch: 999, Mean error: 0.0533973388452855, Mean rel error: 42.26204385946375
+Valid - Epoch: 999, Mean error: 0.41373443545554245, Mean rel error: 16.868987627532082
+Valid - Epoch: 999, Mean error: 0.11502460014004323, Mean rel error: 130.49397392045543
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 212.81454504248586, Mean rel error: 22.068963211825366
+Test - Epoch: 999, Mean error: 241.68855483933845, Mean rel error: 16.58983654810608
 Experiment: 5
-Valid - Epoch: 999, Mean error: 0.17518627623237062, Mean rel error: 8.39275934196373
-Valid - Epoch: 999, Mean error: 0.057152781922824754, Mean rel error: 36.81095285909678
+Valid - Epoch: 999, Mean error: 0.42076254846120725, Mean rel error: 21.759319734580764
+Valid - Epoch: 999, Mean error: 0.10675371653577492, Mean rel error: 92.96305890794389
 {'input_dim': 35, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
-Test - Epoch: 999, Mean error: 140.44727631155976, Mean rel error: 11.344278183489473
+Test - Epoch: 999, Mean error: 232.89760094974264, Mean rel error: 16.85208395864426
 Finish experimenting for system javagc with sample size 116000.
-Mean prediction relative error (%) is: 12.30, Margin (%) is: 4.88
+Mean prediction relative error (%) is: 17.05, Margin (%) is: 0.47
 Save results to the results directory ...
 Save the statistics to file results/result_javagc.csv ...
 Save the raw results to file results/result_javagc_AutoML_veryrandom.npy ...

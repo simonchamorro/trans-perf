@@ -8,10 +8,11 @@ from tqdm import tqdm
 
 
 class ModelRunner():
-    def __init__(self, data_gen, model, batch_size=32):
+    def __init__(self, data_gen, model, seq_len=1, batch_size=32):
         self.data_gen = data_gen
         self.model = model
         self.batch_size = batch_size
+        self.seq_len = seq_len
         
         # Check if GPU is available and set the device
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -54,6 +55,7 @@ class ModelRunner():
             error = 0.0
             num_samples = 0
             for batch_idx, (x_train, y_train) in enumerate(train_dataloader):
+                x_train, y_train = x_train.to(self.device), y_train.to(self.device)
                 x_train, y_train = x_train.to(self.device), y_train.to(self.device)
                 output = self.model(x_train)
                 loss = torch.nn.functional.mse_loss(output, y_train)
@@ -106,8 +108,8 @@ class ModelRunner():
         else:
             x_train, y_train, x_test, y_test, y_max = self.data_gen.get_train_test_samples(train_num, seed, config['gnorm'])
         
-        train_dataset = PerfDataset(x_train, y_train, self.model.d_model)
-        test_dataset = PerfDataset(x_test, y_test, self.model.d_model)
+        train_dataset = PerfDataset(x_train, y_train, self.seq_len)
+        test_dataset = PerfDataset(x_test, y_test, self.seq_len)
         train_dataloader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
         test_dataloader = DataLoader(test_dataset, batch_size=self.batch_size, shuffle=True)
         

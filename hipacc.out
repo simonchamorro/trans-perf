@@ -1,0 +1,154 @@
+hipacc
+Read whole dataset hipacc from csv file ...
+input size: 40, nhead: 8, d_model: 16
+Batch size is: 32
+Experiment: 1
+Valid - Epoch: 999, Mean error: 5.8325539073724855, Mean rel error: 12.901819437399679
+Valid - Epoch: 999, Mean error: 0.4909829216441889, Mean rel error: 2104.2325425422055
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 4.676459086536068, Mean rel error: 11.186546578404652
+Experiment: 2
+Valid - Epoch: 999, Mean error: 4.2430892593559175, Mean rel error: 12.039361877002936
+Valid - Epoch: 999, Mean error: 0.39072363404021865, Mean rel error: 113.05931792862114
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 5.171210791567049, Mean rel error: 14.751979724063244
+Experiment: 3
+Valid - Epoch: 999, Mean error: 4.865359689997531, Mean rel error: 11.026967805007407
+Valid - Epoch: 999, Mean error: 0.3321069081624349, Mean rel error: 139.2771731848004
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 4.144071434302175, Mean rel error: 10.816976704034744
+Experiment: 4
+Valid - Epoch: 999, Mean error: 4.8150990804036455, Mean rel error: 12.21513939999986
+Valid - Epoch: 999, Mean error: 0.2957506125000702, Mean rel error: 65.50010812693628
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.277024861070299, Mean rel error: 8.518822244999182
+Experiment: 5
+Valid - Epoch: 999, Mean error: 4.556610019727685, Mean rel error: 10.940560801275845
+Valid - Epoch: 999, Mean error: 0.2659285644005085, Mean rel error: 56.45650447100058
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 3.6255729013457834, Mean rel error: 9.658494016009902
+Finish experimenting for system hipacc with sample size 261.
+Mean prediction relative error (%) is: 10.99, Margin (%) is: 2.06
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 2.3857692154971035, Mean rel error: 6.61281631751494
+Valid - Epoch: 999, Mean error: 0.23665503751147876, Mean rel error: 167.86773963408038
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.7814876542049567, Mean rel error: 6.876299871060673
+Experiment: 2
+Valid - Epoch: 999, Mean error: 2.5880786288868296, Mean rel error: 6.882697208361193
+Valid - Epoch: 999, Mean error: 0.2490770694884387, Mean rel error: 138.99770758368751
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.4364701401148587, Mean rel error: 6.2978314705469804
+Experiment: 3
+Valid - Epoch: 999, Mean error: 2.7950192364779385, Mean rel error: 8.04505707188086
+Valid - Epoch: 999, Mean error: 0.2023096518083052, Mean rel error: 170.2606336636977
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.1979317310715767, Mean rel error: 5.769850610203899
+Experiment: 4
+Valid - Epoch: 999, Mean error: 2.288921659643, Mean rel error: 7.802377167073163
+Valid - Epoch: 999, Mean error: 0.17686677859588104, Mean rel error: 109.07710899006237
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.5353765965472044, Mean rel error: 6.672686035533348
+Experiment: 5
+Valid - Epoch: 999, Mean error: 2.0399862961335615, Mean rel error: 6.330629370429299
+Valid - Epoch: 999, Mean error: 0.22588455947962674, Mean rel error: 151.85450857335871
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.967692220000825, Mean rel error: 7.943203799813542
+Finish experimenting for system hipacc with sample size 528.
+Mean prediction relative error (%) is: 6.71, Margin (%) is: 0.71
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.7868242069166533, Mean rel error: 5.557584421975272
+Valid - Epoch: 999, Mean error: 0.14777155700994998, Mean rel error: 58.75708657868054
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.581296512435958, Mean rel error: 6.940065348228902
+Experiment: 2
+Valid - Epoch: 999, Mean error: 2.0051830058195153, Mean rel error: 5.565309573192986
+Valid - Epoch: 999, Mean error: 0.22427203898527184, Mean rel error: 103.80264476853974
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.611036347717735, Mean rel error: 6.648418811344752
+Experiment: 3
+Valid - Epoch: 999, Mean error: 2.193360885308713, Mean rel error: 6.032121181488037
+Valid - Epoch: 999, Mean error: 0.26948773325706016, Mean rel error: 83.51268340130241
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.688664220862692, Mean rel error: 7.100628324177421
+Experiment: 4
+Valid - Epoch: 999, Mean error: 2.9288746113679847, Mean rel error: 8.211199896676199
+Valid - Epoch: 999, Mean error: 0.1919029527780961, Mean rel error: 131.45192963736397
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.6461373842456912, Mean rel error: 6.810146564397665
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.8507956057178732, Mean rel error: 5.905828573265854
+Valid - Epoch: 999, Mean error: 0.21304433589078942, Mean rel error: 111.54225641367385
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.4480261916949115, Mean rel error: 6.5282933332046875
+Finish experimenting for system hipacc with sample size 736.
+Mean prediction relative error (%) is: 6.81, Margin (%) is: 0.20
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 1.8367693764822823, Mean rel error: 5.383283988653357
+Valid - Epoch: 999, Mean error: 0.13950659352108244, Mean rel error: 428.7503533396844
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 2.1587415143373905, Mean rel error: 5.609624850765718
+Experiment: 2
+Valid - Epoch: 999, Mean error: 1.8626904900794286, Mean rel error: 5.420655528611266
+Valid - Epoch: 999, Mean error: 0.1632184552364662, Mean rel error: 290.8387013844081
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.3585732947342988, Mean rel error: 3.4828899882526514
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.8172309169724619, Mean rel error: 5.753460980131699
+Valid - Epoch: 999, Mean error: 0.10647405003496299, Mean rel error: 53.856519122871916
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.4285985500928604, Mean rel error: 3.7486971840990626
+Experiment: 4
+Valid - Epoch: 999, Mean error: 1.6535180558644635, Mean rel error: 4.980835472113633
+Valid - Epoch: 999, Mean error: 0.13544229545414588, Mean rel error: 42.97286196670711
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.3959514749032638, Mean rel error: 3.7437008787347708
+Experiment: 5
+Valid - Epoch: 999, Mean error: 1.5439022832508669, Mean rel error: 4.7760069370269775
+Valid - Epoch: 999, Mean error: 0.10263597309170618, Mean rel error: 35.24683147180276
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 1.1761658141468412, Mean rel error: 3.156338258790499
+Finish experimenting for system hipacc with sample size 1281.
+Mean prediction relative error (%) is: 3.95, Margin (%) is: 0.84
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
+Experiment: 1
+Valid - Epoch: 999, Mean error: 0.9724375691004467, Mean rel error: 2.9498441357069263
+Valid - Epoch: 999, Mean error: 0.07912661338286243, Mean rel error: 36.19994160621417
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.8284144039366929, Mean rel error: 2.2696285240806406
+Experiment: 2
+Valid - Epoch: 999, Mean error: 0.77531970487096, Mean rel error: 2.5743102308206955
+Valid - Epoch: 999, Mean error: 0.05705260617870741, Mean rel error: 28.60436160610843
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.7347501813288173, Mean rel error: 1.9527607955627204
+Experiment: 3
+Valid - Epoch: 999, Mean error: 1.075673789137893, Mean rel error: 3.1506876404430786
+Valid - Epoch: 999, Mean error: 0.062299527415748304, Mean rel error: 35.62587442163686
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.725778324637646, Mean rel error: 1.9753116158172928
+Experiment: 4
+Valid - Epoch: 999, Mean error: 0.730959638710643, Mean rel error: 2.398319190925126
+Valid - Epoch: 999, Mean error: 0.1489336247874874, Mean rel error: 311.15546949443217
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.7166504191775137, Mean rel error: 1.9032159584586368
+Experiment: 5
+Valid - Epoch: 999, Mean error: 0.8319923572558547, Mean rel error: 2.459767691974171
+Valid - Epoch: 999, Mean error: 0.07812419509948575, Mean rel error: 91.14643064049002
+{'input_dim': 33, 'gnorm': True, 'lr': 0.001, 'epochs': 1000}
+Test - Epoch: 999, Mean error: 0.5851475082385106, Mean rel error: 1.566516518298699
+Finish experimenting for system hipacc with sample size 9400.
+Mean prediction relative error (%) is: 1.93, Margin (%) is: 0.22
+Save results to the results directory ...
+Save the statistics to file results/result_hipacc.csv ...
+Save the raw results to file results/result_hipacc_AutoML_veryrandom.npy ...
