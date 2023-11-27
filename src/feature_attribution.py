@@ -196,7 +196,7 @@ if __name__ == '__main__':
         ax.set_xticks(x_axis_data + 0.5)
         ax.set_xticklabels(x_axis_data_labels)
         plt.xticks(rotation=45, ha="right")
-        plt.subplots_adjust(bottom=0.15)  # Adjust the bottom margin
+        plt.subplots_adjust(bottom=0.2)  # Adjust the bottom margin
 
         plt.legend(legends, loc=3)
         # plt.show()
