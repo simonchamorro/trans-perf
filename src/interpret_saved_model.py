@@ -6,7 +6,6 @@ import torch
 from data_preprocess import system_samplesize, seed_generator, DataPreproc
 from args import list_of_param_dicts
 from model import Transperf
-from interpretable_model_runner import InterpretableModelRunner
 from dataset import PerfDataset
 from torch.utils.data import DataLoader
 from torch.utils.data import ConcatDataset
@@ -70,6 +69,9 @@ if __name__ == '__main__':
     dl_all_attributions = []
     exp_counter = 0
 
+    ig = IntegratedGradients(model)
+    dl = DeepLift(model)
+
     for batch_idx, (x_test, y_test) in enumerate(dataloader):
         exp_counter += 1
         if exp_counter > n_exp:
@@ -88,9 +90,6 @@ if __name__ == '__main__':
 
         input = x_test
         baseline = torch.zeros_like(input)
-
-        ig = IntegratedGradients(model)
-        dl = DeepLift(model)
         
         ig_attributions, ig_convergence_delta = ig.attribute(input, baseline, target=0, return_convergence_delta=True)
         print('IG Attributions:', ig_attributions)
@@ -110,21 +109,22 @@ if __name__ == '__main__':
 
     dl_attributions_mean = sum(dl_all_attributions) / n_exp
 
+    result = dict()
+    result["IG"] = ig_attributions_mean
+    result["DL"] = dl_attributions_mean
+    result_arr = np.asarray(result)
 
-    # Compute some statistics: mean, confidence interval
-
+    print("\n")
     print('Finish experimenting for system {} with {} experiments.'.format(sys_name, n_exp))
     print('IG Attributions Mean:', ig_all_attributions)
     print('IG Convergence Deltas Mean:', ig_convergence_deltas_mean)
     print('DL Attributions Mean:', dl_attributions_mean)
+    print("\n")
+
 
     # Save the result statistics to a csv file after each sample
     # Save the raw results to an .npy file
-    # print('Save results to the results directory ...')
-    # filename = 'results/result_' + sys_name + '.csv'
-    # np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="Sample size, Mean, Margin")
-    # print('Save the statistics to file ' + filename + ' ...')
-
-    # filename = 'results/result_' + sys_name + '_AutoML_veryrandom.npy'
-    # np.save(filename, result_sys)
-    # print('Save the raw results to file ' + filename + ' ...')
+    print('Save results to the results directory ...')
+    filename = 'results/interpret_' + sys_name + '.csv'
+    np.savetxt(filename, result_arr, fmt="%f", delimiter=",", header="IG, DL")
+    print('Save the statistics to file ' + filename + ' ...')

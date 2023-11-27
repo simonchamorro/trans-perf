@@ -34,8 +34,14 @@ class ModelRunner():
         else:
             x_train, y_train, x_valid, y_valid, _ = self.data_gen.get_train_valid_samples(train_num, seed, config['gnorm'])
         
+        shape = x_train.shape
+        print ("Shape x_train: {}".format(shape))
+
         train_dataset = PerfDataset(x_train, y_train, self.model.d_model)
         valid_dataset = PerfDataset(x_valid, y_valid, self.model.d_model)
+        shape = train_dataset.x.shape
+        print ("Shape train_dataset: {}".format(shape))
+
         train_dataloader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
         valid_dataloader = DataLoader(valid_dataset, batch_size=self.batch_size, shuffle=True)
         

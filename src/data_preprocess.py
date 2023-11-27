@@ -172,3 +172,8 @@ class DataPreproc():
             X_test_norm = np.divide(X_test, max_X)
 
             return X_train_norm, Y_train_norm, X_test_norm, Y_test, max_Y
+        
+
+    def get_feature_names(self):
+        feature_names = genfromtxt(self.data_dir, delimiter=',', max_rows=1)
+        return feature_names
